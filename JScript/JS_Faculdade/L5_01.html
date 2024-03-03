@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 1 </title>
+</head>
+<body>
+    <input id="input_idade" type="text">
+    <button onclick="idade()">Ir para festa</button>
+</body>
+</html>
+<script>
+    function idade(){
+        var idade = input_idade.value;
+        if (idade<18){
+            alert ("pedir permisão pro responsável");
+        } else {
+            alert ("#partiufesta");
+        }
+        alert ("#partiufesta");
+    }
+</script>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex2</title>
+</head>
+<body>
+    <br><br>
+    Quantas latinhas você toma por dia <input id="input_latinha" type="text">
+    <button onclick="Refri()">Quantos refri?</button>
+    <div id="div_ref"></div>
+    <div id="div_lat"></div>
+</body>
+</html>
+<script>
+    function Refri (){
+        var qtd = input_latinha.value * 365;
+      div_ref.innerHTML += "o número de latinha que você toma por ano é " + qtd;
+      if (qtd>=500) {
+      div_ref.innerHTML += "cuidado com o diabetes";
+    } 
+    }
+</script>

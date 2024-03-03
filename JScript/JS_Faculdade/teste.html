@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>verificação se é maior ou igual a </title>
+</head>
+<body>
+    Número: <input id="input_numero" type="text">
+    <br>
+    <button onclick="analisar()">Analisar número</button>
+</body>
+</html>
+<script>
+    function analisar (){
+        var numero = Number(input_numero.value);
+        if (numero>50) {
+            alert("o número é " + numero + "que 50");
+        }      
+        if (numero <=50){
+            alert("o número é " + numero + " menor ou igual a 50");
+        }    
+            alert("estou fora da estrutura de decisão");
+
+            // outra forma de fazer
+            // if(numero>50){
+            // alert (`o número ${numero} é maior que 50`);
+            // } else {
+            // alert ("o número é " + número + " menor que 50" );
+            // }
+        } 
+    </script>

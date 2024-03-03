@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operações ariméticas</title>
+</head>
+<body>
+   <h1> Minha Mini-Calculadora </h1>
+   <input id="input_n1" type="text" placeholder="Digite o primeiro número">
+   <br><br>
+   <input id="input_n2" type="text" placeholder="Digite o segundo número">
+   <br>
+   <h2> Escolha a operação </h2>
+    <button onclick= "Multi()">Multiplicação</button>
+    <br>
+    <button onclick="Div()">Divisão</button>
+    <br>
+    <button onclick="Soma()">Soma</button>
+    <br>
+    <button onclick="Sub()">Subtração</button>
+    <br>
+    <button onclick="Rest()">Resto da divisão</button>
+</body>
+</html>
+<script>
+    function Multi(){
+      alert ('A multiplicação entre os dois números é:'+ input_n1.value * input_n2.value);
+    }
+    function Div(){
+       alert ('A divisão entre os dois números é ' +  input_n1.value / input_n2.value); 
+    }
+    // pra fazer a variavel
+    //ax_n1 = Number(input_n1.value)
+    //ax_n2 = Number(input_n2.value)
+    //ax_result = ax_n1+ax_n2
+    function Soma(){
+        alert ('A soma entre os os dois números é ' + (Number(input_n1.value) + Number(input_n2.value)));
+    }
+    function Sub(){
+        alert ('A subtração entre os dois números é ' + (input_n1.value - input_n2.value));
+    }
+    function Rest(){
+        alert ('O resto da divisão entre o primeiro e o segundo número é '+ input_n1.value % input_n2.value);
+    }
+
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade avaliativa-IMC</title>
+</head>
+<body>
+    Digite seu nome<input id="input_nome" type="text">
+    <br><br>
+    Peso(Em quilogramas)<input id="input_peso" type="text" placeholder="Ex:50Kg">
+    <br><br>
+    Altura(Em metros)<input id="input_altura" type="text" placeholder="Ex:1.79m">
+    <br><br>
+    <button onclick="IMC()">Imc</button>
+</body>
+</html>
+<script>
+   function IMC(){
+    var Peso = Number(input_peso.value);
+    var Altura = Number(input_altura.value);
+    var result = Peso / Altura ** 2;
+    var pe = Altura * 3.28
+    var POnca = Peso * 35.274
+    var imcD = POnca / (pe * pe)
+       alert(input_nome.value + ' ,seu IMC é ' + result + ' Sua altura em pés é ' + pe + ' seu peso em onças é ' + POnca + ' e seu imc diferente é ' + imcD );
+   }
+</script>
+   
+   
