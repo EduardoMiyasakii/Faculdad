@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Pi</title>
+</head>
+<body>
+    Informe quantos m² tem seu setor <input id="input_area" type="text">
+    <br>
+    <button onclick="calcular()">Calcular</button>
+    <div id="div_preco"></div>
+</body>
+</html>
+<script>
+    function calcular(){
+        var area = Number(input_area.value);
+        qtdS = area / 0.00000162;
+        var precoS = qtdS * 10;
+       div_preco.innerHTML = "A sua área é de " + area + " m² e a quantidade de sensores que você precisa é " + qtdS + " e o preço por esses sensores é " + precoS;
+    }
+</script>
