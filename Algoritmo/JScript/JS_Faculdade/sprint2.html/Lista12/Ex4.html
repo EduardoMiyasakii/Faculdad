@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Exercício 4</h1>
+    <br>
+    Informe seus filmes favoritos <input type="text" id="input_filme" placeholder="Ex: Harry Potter">
+    <br>
+    <button onclick="Cadastrar()">Cadastrar filmes</button>
+    <button onclick="Ver()">Ver Favoritos</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+<script>
+    var totalFilme = 0;
+    var listaFilme = [];
+
+    function Cadastrar() {
+        var filme = input_filme.value;
+        totalFilme++;
+
+        listaFilme.push(filme);
+        console.log(listaFilme);
+    }
+    function Ver() {
+        if (listaFilme[0] == undefined) {
+            window.alert("Nenhum filme registrado");
+
+        } else {
+            div_mensagem.innerHTML = ``;
+
+            var tamanhoLista = listaFilme.length;
+            var piorFilme = tamanhoLista - 1;
+
+            div_mensagem.innerHTML += `O Filme que você mais gosta é ${listaFilme[0]}<br>O filme que você menos gosta é ${listaFilme[piorFilme]}`;
+
+            div_mensagem.innerHTML += `<br>Total de filmes cadastrados: ${totalFilme}`;
+        }
+    }
+</script>

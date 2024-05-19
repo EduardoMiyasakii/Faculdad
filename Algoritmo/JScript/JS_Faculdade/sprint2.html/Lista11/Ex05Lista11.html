@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Par ou ímpar</title>
+</head>
+<body>
+    <h1>Par ou ímpar</h1>
+    Informe quantas rodadas serão sorteados <input type="text" id="input_quantidade">
+    <br>
+    <Select id="select_parimpar">
+        <option selected disabled value="0">Escolha uma opção</option>
+        <option value="1">Par</option>
+        <option value="2">ímpar</option>
+    </Select>
+<br>
+<button onclick="sortear()">Jogar</button>
+<div id="div_mensagem"></div>
+
+</body>
+</html>
+<script>
+    var contadorPar = 0;
+    var contadorImpar = 0;
+     function sortear(){
+        
+        var quantidade = Number(input_quantidade.value);
+        var parImpar = select_parimpar.value;
+
+        
+        for (let index = 0; index < quantidade; index++) {
+            var numeroAleatorio = Math.random();
+            var numeroFixado = numeroAleatorio.toFixed(1);
+
+            if(numeroAleatorio > 0.5){
+                contadorPar ++;
+                div_mensagem.innerHTML += `${numeroFixado} deu par <br>`;
+                
+            } else {
+                contadorImpar ++;
+                div_mensagem.innerHTML += `${numeroFixado} deu ímpar <br>`;
+            }
+           
+        }
+        if(contadorPar > contadorImpar){
+            div_mensagem.innerHTML += `<br> Deu par <br>`
+        } else if(contadorPar == contadorImpar ){
+            div_mensagem.innerHTML += "<br>Empate <br>"
+            
+        } else if(contadorImpar > contadorPar){
+            div_mensagem.innerHTML += `<br> Deu ímpar<br>`
+        }
+        
+    
+     }
+
+</script>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Mostrando os aleatórios</h2>
+    <br>
+    Informe a quantidade de números: <input type="text" id="input_quantidade">
+    <br><br>
+    <Button onclick="sortear()">Sortear</Button>
+    <br><br>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function sortear() {
+
+        var texto = "";
+        var numerosAbaixoMaior = 0;
+        var Media = 0;
+       
+        var totalPrimeiroQ = 0;
+        var maiorNumero1 = 0;
+        var menorNumero1 = 1;
+
+        var totalSegundoQ = 0;
+        var maiorNumero2 = 0;
+        var menorNumero2 = 1;
+
+        var totalTerceiroQ = 0;
+        var maiorNumero3 = 0;
+        var menorNumero3 = 1;
+
+        var totalQuartoQ = 0;
+        var maiorNumero4 = 0;
+        var menorNumero4 = 1;
+
+        var quantidadeNumeros = input_quantidade.value;
+        div_mensagem.innerHTML = "";
+        var numeroAleatorio = 0;
+
+
+        for (let index = 1; index <= quantidadeNumeros; index++) {
+
+            numeroAleatorio = Math.random();
+           
+
+            // verificando se o número sorteado é maior que o número anterior sorteador
+           // if (numeroAleatorio > maiorNumero) {
+               // maiorNumero = numeroAleatorio;
+          //  }
+            // verificando se o número sorteado é menor que o número anterior sorteador
+            //if (numeroAleatorio < menorNumero) {
+              //  menorNumero = numeroAleatorio;
+
+            //}
+
+            if (numeroAleatorio > 0.75) {
+
+                totalPrimeiroQ++;
+                if (numeroAleatorio > maiorNumero1) {
+                    maiorNumero1 = numeroAleatorio
+                }
+                if (numeroAleatorio < menorNumero1) {
+                   menorNumero1 = numeroAleatorio;
+
+                }
+                div_mensagem.innerHTML += `${numeroAleatorio} está no 1° quartil`;
+            } else  if (numeroAleatorio > 0.5) {
+
+                
+                totalSegundoQ++;
+                
+                if (numeroAleatorio > maiorNumero2) {
+                    maiorNumero2 = numeroAleatorio
+                }
+
+                if (numeroAleatorio < menorNumero2) {
+                    menorNumero2 = numeroAleatorio;
+
+                }
+                div_mensagem.innerHTML += `${numeroAleatorio} está no 2° quartil`;
+            } else if (numeroAleatorio >= 0.25 && numeroAleatorio <= 0.5) {
+
+                totalTerceiroQ ++;
+
+                if (numeroAleatorio > maiorNumero3) {
+                    maiorNumero3 = numeroAleatorio
+                }
+
+                if (numeroAleatorio < menorNumero3) {
+                    menorNumero3 = numeroAleatorio;
+
+                }
+                div_mensagem.innerHTML += `${numeroAleatorio} está no 3° quartil`;
+            } else if(numeroAleatorio <= 0.25){
+
+                totalQuartoQ ++;
+
+                if(numeroAleatorio > maiorNumero4){
+
+                    maiorNumero4 = numeroAleatorio;
+
+                }
+                if (numeroAleatorio < menorNumero4) {
+                    menorNumero4 = numeroAleatorio;
+                }
+                div_mensagem.innerHTML += `${numeroAleatorio} está no 4° quartil`;
+            }
+
+                div_mensagem.innerHTML = `<br> 1° QUARTIL <br> Total de números sorteador ${totalPrimeiroQ} <br> Maior número sorteado ${maiorNumero1} <br> Menor número sorteador ${menorNumero1} <br> 2° QUARTIL <br> Total de números sorteados ${totalSegundoQ} <Br> Maior número sorteado ${maiorNumero2} <br> Menor número sorteado ${menorNumero2} <br> 3° QUARTIL <br> Total de números sorteados ${totalTerceiroQ} <br> Maior número sorteado ${maiorNumero3} <br> Menor número sorteado ${menorNumero3} <br> 4° Quartil <br> Total de números sorteados ${totalQuartoQ} <br> Maior número sorteado ${maiorNumero4} <br> Menor número sorteado ${menorNumero4}`;
+
+            }
+        }
+</script>

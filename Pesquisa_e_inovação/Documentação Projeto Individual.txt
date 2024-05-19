@@ -1,0 +1,82 @@
+Documentação Projeto Individual
+
+Contexto
+
+O que é racismo?
+
+O racismo é uma manifestação de preconceito e discriminação que se fundamenta em percepções sociais derivadas de diferenças biológicas entre pessoas e grupos étnicos. Essa atitude nociva frequentemente se manifesta por meio de ações, práticas ou crenças que respaldam a ideia de que determinadas raças são inerentemente superiores ou inferiores com base em características, habilidades ou qualidades comuns transmitidas geneticamente.
+Além disso, o racismo pode promover a ideia de que os membros de diferentes grupos étnicos devem ser tratados de maneira desigual
+
+O que é racismo estrutural?
+
+É essa naturalização de ações, hábitos, situações, falas e pensamentos que já fazem parte da vida cotidiana do povo, e que promovem, direta ou indiretamente, a segregação ou o preconceito racial. Um processo que atinge tão duramente — e diariamente — a população negra.
+
+No cotidiano da sociedade estão normalizadas frases e atitudes de cunho racista e preconceituoso, é o que chamamos de racismo cultural. São piadas que associam negros e indígenas a situações vexatórias, degradantes ou criminosas. Ou atitudes baseadas em preconceitos, como desconfiar da índole de alguém pela cor de sua pele.
+
+Outra forma comum de racismo é a adoção de eufemismos para fazer referência a negros ou pretos, como as palavras “moreno” e “pessoa de cor”. Essa atitude evidencia um desconforto das pessoas, em geral, ao utilizar as palavras “negro” ou “preto” pelo estigma social que a população negra recebeu ao longo dos anos.
+
+Essas ações reverberam nas instituições públicas e privadas como no mercado de trabalho, por exemplo.
+
+No Estado e nas leis que alimentam a exclusão da população negra. Elas se materializam, por exemplo, na ausência de políticas públicas que possam promover melhores condições de vida a esses grupos étnicos.
+
+Dizemos que o racismo brasileiro é estrutural porque toda a nossa sociedade se formou assentada em bases racistas. Por aqui, esse fenômeno é tão naturalizado que chega a constituir o funcionamento normal da sociedade.
+
+O que é esporte?
+
+Esporte é toda atividade física competitiva com regras e objetivos bem definidos. O objetivo de todas as modalidades esportivas é a superação dos adversários em absoluto respeito às regras.
+
+Os esportes podem ser praticados de forma individual ou coletiva, profissionalmente, de maneira recreativa ou para a melhoria da saúde. Os praticantes de esportes são chamados de esportistas, desportistas ou atletas.
+
+O esporte engloba diversas dimensões como prática, lazer e como evento. Existem diversas modalidades de esporte
+
+
+O Problema do racismo no esporte
+
+
+Até mesmo o esporte, que é constantemente palco de manifestações de combate ao preconceito racial e fábrica de ídolos de pele negra, tem visto um crescimento alarmante de casos de racismo. Somente em 2019, os casos de injúria racial no esporte brasileiro cresceram a ponto de atingir o maior índice em cinco anos. Estes dados são do futebol, mas sabemos que as atitudes acontecem em outras modalidades esportivas.
+
+Os atos vão desde ofensas verbais como chamar o outro de macaco, atitudes depreciativas como atirar bananas para dentro do campo na direção de jogadores da raça negra e até atos mais graves como a depredação de bens pessoais em razão da cor da pele. E as atitudes racistas não ficam restritas às torcidas e às arquibancadas, como muitos podem pensar, e acontecem também dentro de quadra ou campo, entre atletas, jogadores e companheiro de equipe.
+
+
+
+											Noticias
+
+https://cdn.espn.com.br/image/wide/622_6a319f64-063d-348f-94df-e49854e6a0fb.jpg
+
+O atacante Vinicius Junior voltou a ser alvo de racismo por parte de torcedores do Atlético de Madrid. Um vídeo publicado nas redes sociais flagrou fãs do clube espanhol puxando um canto com o jogador do Real Madrid como alvo, sendo chamado de chimpanzé. O ato racista ocorreu do lado de fora do Estádio Metropolitano
+
+Segundo o jornal "As", o grupo de torcedores puxou o canto contra Vinicius enquanto aguardava a chegada do ônibus com o elenco do Atlético de Madrid, quando a torcida fez um corredor com sinalizadores e fumaça. Quando a torcida puxava um canto para exaltar o clube ("Alé, alé, aké, Atleti te amo, contigo até o final"), alguns torcedores mudaram a letra para ofender Vini Jr.
+
+- Alé, alé, alé, Vinicius chimpanzé - gritaram.
+
+
+Esta não é a primeira vez que Vinicius Junior é alvo de racismo no ambiente do Estádio Metropolitano, casa do Atlético de Madrid, rival local do Real. Em setembro de 2022, por exemplo, o brasileiro foi chamado de macaco durante o clássico madrilenho no estádio. Na atual temporada também houve um episódio de preconceito contra o atacante, novamente chamado de macaco, mas na chegada do Real Madrid ao Metropolitano.
+
+um dos casos mais emblemáticos ocorreu em janeiro de 2023, quando torcedores do Atlético penduraram um boneco em um viaduto, simulando um enforcamento de Vinicius Junior, antes de clássico contra o Real.
+
+https://f.i.uol.com.br/fotografia/2023/01/26/167474707363d29cc1a0a47_1674747073_3x2_xl.jpg
+
+Objetivo:
+
+O objetivo do projeto é conscientizar sobre o racismo presente nos esportes;  
+
+Justificativa
+
+Diminuir os casos de racismo
+
+Escopo:
+
+•Software:Site insticuional que poderá ser acessado por todos;
+•O sistema será compatível com os navegadores: Google, Opera, Firefox, Edge;
+•Irá conter 5 páginas(cadastro,login,site institucional,dashbord)rolagem vertical;
+•O desenvolvimento desse projeto será feito do dia  de abril até de junho;
+•Não terá versão mobile ou ios;
+•O desenvolvedor do projeto:Eduardo Kendi de sousa Miyasaki;
+
+Premissas:
+
+•O cliente deve possuir internet;
+
+
+Restrições:
+• O projeto terá seu fim no dia  de junho;

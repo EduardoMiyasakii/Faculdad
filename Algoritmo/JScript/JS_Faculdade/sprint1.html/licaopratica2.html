@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza</title>
+</head>
+<body>
+  <input id="input_pizza" type="text" placeholder="Digite quanto custa a pizza">
+<br><br> 
+  <input id="input_pessoas" type="text" placeholder="Quantas pessoas vão pagar">
+<br><br>
+  <button onclick="love()">#Lovepizza</button>
+</body>
+</html>
+<script>
+function love(){
+  var Valor = input_pizza.value
+  var Pessoa = input_pessoas.value
+  var Result = Valor / Pessoa
+  alert('cada um dos ' + input_pessoas.value + ' amigos vão pagar ' + Result);
+}
+</script>
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <br><br>
+  <input id="input_nome" type="text" placeholder="Digite seu nome">
+  <br><br>
+  Nota da avaliação continuada <input id="input_n1" type="text">
+  <br><br>
+  Nota da avaliação semestral <input id="input_n2" type="text">
+  <br><br>
+  <button onclick="media()">Média</button>
+</body>
+</html>
+   <script>
+  function media(){
+  var N1 = Number(input_n1.value)*0.4;
+  var N2 = Number(input_n2.value)*0.6;
+  var media = (N1 + N2)
+  alert('Sua média é ' + media)
+ }
+   </script>

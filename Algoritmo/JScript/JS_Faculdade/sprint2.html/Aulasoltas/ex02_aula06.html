@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Informe a idade: <input id="input_idade">
+    <br>
+    <button onclick="analisar()">Analisar</button>
+    <br>
+    <button onclick="calcular()">Calcular</button>
+
+</body>
+
+</html>
+<script>
+    var maior = 0;
+    var maior_civil = 0;
+    var menor = 0;
+    var total = 0;
+
+    function analisar() {
+        var idade = Number(input_idade.value);
+
+        if (idade >= 18) {
+
+            if (idade >= 21) {
+                maior_civil = maior_civil + 1;
+                alert("total de pessoas maior de idade civil " + maior_civil);
+            }
+            else {
+                maior = maior + 1;
+                alert("total de pessoas maior de idade penal " + maior);
+            }
+        }
+
+        if (idade < 18) {
+            menor += 1;
+            alert("total de pessoas menor de idade " + menor);
+        }
+        total = total + idade;
+    }
+    function calcular() {
+        var media = total / (menor + maior + maior_civil);
+
+        alert("a idade média é " + media);
+    }
+</script>

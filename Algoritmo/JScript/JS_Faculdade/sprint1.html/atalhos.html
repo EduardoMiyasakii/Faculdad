@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Atalhos</h1>
+   N1:<input id="input_n1"><br>
+   <Button onclick = "multiplicar()">Multiplicar</Button><br>
+   <button onclick = "dividir()">Dividir </button><br>
+   <button onclick = "somar()">Somar</button><br>
+   <button onclick = "subtrair()">Subtrair</button><br>
+   <div id="div_mensagem">1</div>
+</body>
+</html>
+<script>
+var numero_atual = 1;
+    function multiplicar(){
+        var n1 = Number(input_n1.value);
+        numero_atual *= n1;
+        div_mensagem.innerHTML = numero_atual;
+    }
+     function dividir(){
+        var n1 = Number(input_n1.value);
+        numero_atual = n1;
+        div_mensagem.innerHTML = numero_atual;
+    }
+    function somar(){
+        var n1 = Number(input_n1.value);
+        numero_atual += numero_atual;
+        div_mensagem.innerHTML = numero_atual;
+    }
+    function subtrair (){
+        var n1 = Number(input_n1.value);
+        numero_atual -= n1;
+        div_mensagem.innerHTML = numero_atual;
+    }
+</script>

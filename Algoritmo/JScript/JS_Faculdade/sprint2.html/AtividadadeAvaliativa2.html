@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Harmburg&ria</h1>
+    <br>
+    Informe o tipo de corte:<input type="text" id="input_corte">
+    <br>
+    Informe o peso:<input type="number" id="input_peso" placeholder="Ex:100g">
+    <br>
+    Informe o preço por kilo: <input type="number" id="input_preco" placeholder="Ex:12,99R$">
+    <br>
+    <button onclick="Adicionar()">Adicionar Carne</button>
+    <br>
+    <button onclick="Preparar()">Preparar Blend</button>
+
+    <div id="msg"></div>
+
+    <b id="b_mensagem"></b>
+</body>
+
+</html>
+
+<script>
+    var listaCorte = [];
+    var listaPeso = [];
+    var listaPreco = [];
+    var listaTotal = [];
+    var preco = 0;
+
+    function Adicionar() {
+        var corte = input_corte.value;
+        var peso = input_peso.value;
+        var preco = input_preco.value;
+
+        var conversaoKg = peso * 0.1;
+
+        var total = conversaoKg * preco;
+
+        if (corte == "" || peso <= 0 || preco <= 0 || peso == "" || preco == "") {
+            alert("Insira as informações corretamente");
+        } else {
+
+            var indice = listaCorte.indexOf(corte);
+
+            if (indice == -1) {
+
+                listaCorte.push(corte);
+                listaPeso.push(peso);
+                listaPreco.push(preco);
+                listaTotal.push(total);
+                
+                console.log(total);
+                console.log(listaCorte);
+                console.log(listaPreco);
+                console.log(listaPeso);
+
+            } else {
+                alert("O corte já foi adicionado anteriormente");
+            }
+        }
+    }
+    
+    var soma = 0;
+    function Preparar() {
+
+        msg.innerHTML = '';
+        
+        for (let index = 0; index < listaCorte.length; index++) {
+            soma +=  listaTotal[index];
+            msg.innerHTML += `${listaCorte[index]} | 
+                                ${listaTotal[index].toFixed(2)}<br>`;
+            b_mensagem.innerHTML = `<br> ${soma.toFixed(2)}`;
+        }
+    }
+</script>

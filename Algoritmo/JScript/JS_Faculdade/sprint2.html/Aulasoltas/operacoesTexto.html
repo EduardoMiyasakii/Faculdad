@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operacões com texto</title>
+</head>
+
+<body>
+    <center>
+    <h1>Operacões com texto</h1>
+    Digite uma frase: <input type="text" id="input_frase">
+    <br>
+    <button onclick="analisar()">Analisar frase</button>
+    <br>
+    <div id="div_mensagem"></div> 
+</center>
+</body>
+
+</html>
+<script>
+    
+    function analisar() {
+        // A &nbsp;b
+
+        var frase = input_frase.value;
+
+        var tamanhoFrase = frase.length;
+
+        div_mensagem.innerHTML = `<br>Quantidade de caracteres ${tamanhoFrase}`;
+
+        if (tamanhoFrase < 8) {
+            div_mensagem.innerHTML += '<br>A frase não possui oito letras'
+
+        } else {
+            div_mensagem.innerHTML += "<br>Possui ao menos oito caracteres";
+
+        }
+
+        var comeca_com_a = frase.startsWith("A")
+        div_mensagem.innerHTML += `<br>Comeca com A?${comeca_com_a}`;
+
+        var termina_com_com = frase.endsWith(".com")
+        div_mensagem.innerHTML += "<br>Termina com .com?" + termina_com_com;
+
+        var primeiraLetra = frase[0];
+        div_mensagem.innerHTML += "<br>Primeira letra " + primeiraLetra;
+
+        var terceiraLetra = frase[2];
+        div_mensagem.innerHTML += "<br>Terceira letra " + terceiraLetra;
+
+        // maça verde
+        // 0123456789
+        // 10 caracteres - 1 = pega o e
+
+        var posicaoUltimaLetra = tamanhoFrase - 1;
+        var ultimaLetra = frase[posicaoUltimaLetra];
+        div_mensagem.innerHTML += "<br>Última letra " + ultimaLetra;
+
+        var posicaoArroba = frase.indexOf("@");
+        div_mensagem.innerHTML += `<br>Índice de @ ${posicaoArroba}`;
+
+        if (posicaoArroba < 0) {
+            div_mensagem.innerHTML += "<br>Não possui arroba";
+        } else {
+            div_mensagem.innerHTML += "<br>Possui @ nessa frase";
+        }
+
+        var fraseMaiuscula = frase.toUpperCase();
+        var fraseMiniscula = frase.toLowerCase();
+
+        div_mensagem.innerHTML += `<br>Frase maiuscula ${fraseMaiuscula}`;
+        div_mensagem.innerHTML += `<br>Frase miniscúla ${fraseMiniscula}`;
+        div_mensagem.innerHTML += `<br> Frase original ${frase}`;
+
+        var frase_com_arroba_no_primeiro_a = frase.replace("a","@");
+        div_mensagem.innerHTML += `<br>Frase com @ no primeiro a: ${frase_com_arroba_no_primeiro_a}`;
+
+        var frase_com_arroba = frase.replaceAll("a","@");
+        div_mensagem.innerHTML += `<br>Frase com @ no a: ${frase_com_arroba}`;
+
+        var frase_sem_espaco = frase.replaceAll(" ","");
+        div_mensagem.innerHTML += `<br>Frase sem espaço ${frase_sem_espaco}`;
+
+        var frase_formatada = frase.replaceAll("a",4).replaceAll("e",3).replaceAll("s",5);
+        //var frase_formatada2 = frase_formatada.replaceAll("b",3);
+        // var frase_formatada3 = frase_formatada2.replaceAll("s",5);
+
+        div_mensagem.innerHTML += `<br>Frase formatada ${frase_formatada}`;
+    }
+
+</script>

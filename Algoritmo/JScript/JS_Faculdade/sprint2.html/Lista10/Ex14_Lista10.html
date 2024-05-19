@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 14</title>
+</head>
+<body>
+    <h1>Exercício 14 Lista 10</h1>
+<br>
+Informe sua idade: <input type="text" onkeyup="mensagem_idade()" id="input_idade">
+<br>
+<div id="div_mensagem"></div>
+
+ 
+</body>
+</html>
+<script>
+
+    function mensagem_idade(){
+
+        var idade = Number(input_idade.value);
+        var texto = "";
+
+        alert(idade);
+
+        var restoPInfancia = index % idade;
+        
+        for (let index = 0; index <= idade; index++) {
+            if(idade <= 4){              
+                texto += `<br> ${index} anos(Primeira infância)`;
+            }
+            else if(idade <= 6 ){
+                texto += `<br> ${index} anos(Pré-Escola)`;
+            }
+            else if(idade <= 10){
+                texto += `<br> ${index} anos(Segunda-infância)`;
+            }
+            else if(idade <= 18){
+                texto += `<br> ${index} anos(Adolescência)`;
+            }
+            else if(idade <= 50){
+                texto += `<br> ${index} anos(Adulto)`;
+            }
+            else if(idade <= 100){
+                texto+= `<br> ${index} anos(Melhor-idade)`;
+            }
+            else {
+                texto += `<br> ${index} anos(Matusalém)`;
+            }
+        }
+
+              
+        div_mensagem.innerHTML = texto;
+    }
+</script>

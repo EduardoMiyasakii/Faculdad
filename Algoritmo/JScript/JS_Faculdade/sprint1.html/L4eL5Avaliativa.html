@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 ex 01</title>
+</head>
+
+<body>
+    quantas horas você dormiu?<input id="input_sono" type="text">
+    <button onclick="fases()">Calcular sono </button>
+    <div id="div_sono">Suas horas de sono dormida é</div>
+</body>
+
+</html>
+<script>
+    function fases() {
+        var sono = Number(input_sono.value);
+        var fase1 = sono * 5 / 100;
+        var fase2 = sono * 45 / 100;
+        var fase3 = sono * 30 / 100;
+        var fase4 = sono * 20 / 100;
+        div_sono.innerHTML = " suas horas dormidas são " + sono + "<br>" + fase1 + " horas na fase 1 " + "<br>" + fase2 + " horas na fase 2 <br>" + fase3 + " horas na fase 3 <br>" + fase4 + " horas na fase 4 <br>";
+    }
+</script>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eleições</title>
+</head>
+
+<body>
+    <br>
+    Quantidade de votos para o Candidato A <input id="input_a" type="text">
+    <br>
+    Quantidade de votos para o Candidato B <input id="input_b" type="text">
+    <br>
+    Quantidade de votos nulos <input id="input_nulo" type="text">
+    <br>
+    Quantidade de votos em Branco <input id="input_branco" type="text">
+    <br>
+    <button onclick="res()">Resultado da eleição</button>
+    <div id="div_result">Os resultados da eleição é</div>
+</body>
+
+</html>
+<script>
+    function res() {
+        var C1 = Number(input_a.value);
+        var C2 = Number(input_b.value);
+        var C3 = Number(input_nulo.value) + Number(input_branco.value);
+        var qtdvotos = C1 + C2 + C3;
+        var P1 = C1 * 100 / qtdvotos
+        var P2 = C2 * 100 / qtdvotos
+        var P3 = C3 * 100 / qtdvotos
+        div_result.innerHTML += "<br>Quantidade total de votos "+ qtdvotos + "<br>Candidato A teve " + C1 + " de votos" + " e a porcentagem é " + P1 + "<br> Candidato B teve  " + C2 + " de votos" + "e a porcontegaem é " + P2 + "<br>Quantidade de votos nulos " + C3 + " e a porcentagem é " + P3;
+    }
+</script>
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 exercício 10 Tio Patinhas</title>
+</head>
+
+<body>
+    <br>
+    Insira um valor:<input id="input_retirada" type="text">
+    <br>
+    <button onclick="depositoP()">Depósito de 0,50$</button>
+    <br>
+    <button onclick="depositoG()">Depósito de 2,00$</button>
+    <br>
+    <button onclick="retiradaP()">Retirar 0,50$</button>
+    <br>
+    <button onclick="retiradaG()">Retirar</button>
+    <div id="div_dinheiro" style="color: blue;">Total guardado no cofrinho:<br>Depósitos efetuados:<br>Retiradas
+        efetuadas:<br></div>
+</body>
+
+</html>
+<script>
+    var valor = 0
+    var qtdD = 0
+    var qtdR = 0
+    function depositoP() {
+        qtdD = qtdD + 1;
+        valor = valor + 0.50;
+        div_dinheiro.innerHTML =" Total guardado no cofrinho: " + valor + "<br> Depósitos efetuados: " + qtdD + "<br>Retiradas efetuadas: " + qtdR;
+    }
+    function depositoG() {
+        qtdD = qtdD + 1;
+        valor = valor + 2.0;
+        div_dinheiro.innerHTML = " Total guardado no cofrinho: " + valor + "<br> Depósitos efetuados: " + qtdD + "<br>Retiradas efetuadas: " + qtdR;
+    }
+    function retiradaP() {
+        qtdR = qtdR + 1;
+        valor = valor - 0.50;
+        div_dinheiro.innerHTML = " Total guardado no cofrinho: " + valor + "<br> Depósitos efetuados: " + qtdD + "<br>Retiradas efetuadas: " + qtdR;
+    }
+    function retiradaG() {
+        qtdR = qtdR + 1;
+        var retirar = Number(input_retirada.value);
+        valor = valor - retirar;
+        div_dinheiro.innerHTML  = " Total guardado no cofrinho: " + valor + "<br> Depósitos efetuados: " + qtdD + "<br>Retiradas efetuadas: " + qtdR;
+    }
+</script>
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex3 Lista 5</title>
+</head>
+
+<body>
+    <br>
+    insira a Nota 1: <input id="input_n1" type="text">
+    <br>
+    insira a Nota 2: <input id="input_n2" type="text">
+    <br>
+    insira a Nota 3: <input id="input_n3" type="text">
+    <br>
+    <button onclick="analise()">Analisar desempenho</button>
+    <div id="div_media"></div>
+</body>
+
+</html>
+<script>
+    function analise() {
+        var n1 = Number(input_n1.value);
+        var n2 = Number(input_n2.value);
+        var n3 = Number(input_n3.value);
+        var media = (n1 + n2 + n3) / 3;
+        div_media.innerHTML += "Sua média foi de " + media + "<br>";
+        if (media > 9.4) {
+            div_media.innerHTML += "Parabéns,Você é fora de série <br>";
+        }
+    }
+</script>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L5 Ex 5</title>
+</head>
+
+<body>
+    <br>
+    Quantidade de KWH consumida no mês<input id="input_kwh" type="text">
+    <br>
+    <button onclick="conta()">Calcular conta de luz</button>
+    <div id="div_conta"></div>
+</body>
+
+</html>
+<script>
+    var valor = 0;
+    function conta() {
+        var KWH = Number(input_kwh.value);
+        valor = KWH * 85 / 100;
+        var desc = valor * 0.1;
+        var valorcomd = valor - desc;
+        div_conta.innerHTML = "Sua conta de luz nesse mês foi de " + valor;
+        if (KWH < 100) {
+            alert("você ganhou um desconto de 10%!O valor a ser pago é " + valorcomd);
+        }
+    }
+</script>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta naocumentme="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX8 L5</title>
+</head>
+
+<body>
+    <br>
+    Quantidade de Homens dentro do elevador <input id="input_homens" type="text">
+    <br>
+    Quantidade de Mulheres dentro do elevador<input id="input_mulher" type="text">
+    <br>
+    <button onclick="peso()">Analisar peso</button>
+    <div id="div_peso"></div>
+    <div id="div_pesot" style="color: blue"></div>
+</body>
+
+</html>
+<script>
+    function peso() {
+        var phomens = Number(input_homens.value);
+        var pmulher = Number(input_mulher.value);
+        var pesot = phomens * 80 + pmulher * 60;
+        div_peso.innerHTML = "Este elevador suporta 800 kg e o peso estimado dessa lotação é de " + pesot;
+        if (pesot > 800) {
+            div_pesot.innerHTML += "Será necessário que alguém desça para que o elevador se movimente"
+        }
+    }
+</script>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 10 L5</title>
+</head>
+
+<body>
+    <br>
+    Informe seu saldo na conta do banco <input id="input_saldo" type="text">
+    <br>
+    <button onclick="verificar()">Verificar Finanças</button>
+    <br>
+    <div id="div_zero" style="color: black;"></div>
+    <div id="div_dev" style="color: red;"></div>
+    <div id="div_pos" style="color: blue;"></div>
+</body>
+
+</html>
+<script>
+    saldo = 0
+    function verificar() {
+        saldo = Number(input_saldo.value);
+        if (saldo == 0) {
+            div_zero.innerHTML = "Conta zerada";
+        }
+        if (saldo < 0) {
+            div_dev.innerHTML = "Está devendo!";
+        }
+        if (saldo > 0) {
+            div_pos.innerHTML = "Saldo positivo!"
+        }
+    }
+</script>

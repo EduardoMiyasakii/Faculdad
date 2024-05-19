@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prova</title>
+</head>
+
+<body>
+    Quantidade de kwh consumidas <input id="input_kwh" type="text">
+    <br>
+    Bandeira tarifária <input id="input_bandeira" type="text">
+    <br>
+    Quantidade de água consumida <input id="input_agua" type="text">
+    <br>
+    Quantidade de vazamentos de água na casa <input id="input_vazamento" type="text">
+    <br>
+    Volume de gás <input id="input_gas" type="text">
+    <br>
+    Quantidade MB consumida <input id="input_mb" type="text">
+    <br>
+    Possui linha telefônica <input id="input_telefone" type="text">
+    <br>
+    <button onclick="calcular()">Calcular despesas fixas</button>
+    <div id="div_msg"></div>
+</body>
+
+</html>
+<script>
+    function calcular() {
+        var energia = Number(input_kwh.value);
+        var bandeira = input_bandeira.value;
+        var qtdAgua = Number(input_agua.value);
+        var qtdVazamento = Number(input_vazamento.value);
+        var gas = Number(input_gas.value)
+        var mb = Number(input_mb.value);
+        var telefone = Number(input_telefone.value);
+
+        var custoEnergia = 0;
+
+        var custoAgua = 0;
+        custoAgua = qtdAgua * 3.50;
+
+        var custoGas = 0;
+        custoGas = gas * 2.50;
+
+        var custoInternet = 0;
+        custoInternet = mb * 0.8;
+
+        var custoTotal = custoAgua + custoGas + custoInternet;
+
+        if (bandeira == "verde") {
+            var custoEnergiaVerde = energia * 0.75;
+            custoEnergia = custoEnergiaVerde;
+        }
+
+        if (bandeira == "amarela") {
+            var custoEnergiaAmarela = energia * 0.90;
+            custoEnergia = custoEnergiaAmarela;
+        }
+
+        if (bandeira == "vermelha") {
+            var custoEnergiaVermelha = energia * 1;
+            custoEnergia = custoEnergiaVermelha;
+        }
+
+        if (energia <= 50) {
+            var descontoEnergia = custoEnergia * 0.1;
+            custoEnergia = custoEnergia - descontoEnergia;
+        }
+
+        if (qtdVazamento >= 1) {
+            custoAgua = custoAgua + qtdVazamento * 10;
+        }
+        if (telefone == "sim") {
+            var acrescimoInternet = custoInternet / 4;
+            custoInternet = custoInternet + acrescimoInternet;
+
+        } if (telefone == "nao") {
+            var descontoInternet = custoInternet * 0.75;
+            custoInternet = custoInternet - descontoInternet;
+        }
+        div_msg.innerHTML = "Com o consumo de " + energia + " de energia na bandeira " + bandeira + " ,a conta de energia totaliza R$ " + custoEnergia + "<br>Com o consumo de " + qtdAgua + " litros de água,contendo " + qtdVazamento + " vazamentos,a conta de água totaliza R$" + custoAgua + "<br> Com o consumo de " + gas + " litros de gás,a conta do gás totaliza R$ " + custoGas + "<br> Com o consumo de " + mb + " Mb de internet,o valor do plano de internet/telefone totaliza R$ " + custoInternet + "<br>Gasto total de despesa mensal:R$ " + custoTotal;
+    }
+</script>

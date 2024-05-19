@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dugu's Machine</title>
+    <style>
+        * {
+            font-family: Verdana;
+        }
+        
+        body {
+            display: flex;
+            height: 46vw;
+            background-image: radial-gradient(ellipse 90% 10000%, #1835aa 15%, #295651 70%);
+            flex-direction: column;
+        }
+
+        #h1Titulo {
+            justify-content: center;
+            display: flex;
+            color: skyblue;
+            font-size: 2.85vw;
+            margin-top: -0.5vw;
+            margin-bottom: 0.3vw;
+        }
+
+        .input-w-h {
+            width: 20vw;
+            height: 2.3vw;
+            font-size: 1.38vw;
+            margin-bottom: 0.7vw;
+            margin-top: -1vw;
+        }
+
+        .input-border {
+            border-radius: 1vw;
+            border: solid 0.2vw black;
+        }
+
+        .input-color {
+            color: white;
+            background-color: #222222;
+        }
+
+        .input-focus:focus {
+            width: 26vw;
+            height: 2.5vw;
+            font-size: 1.8vw;
+            transition: 0.5s;
+            color: white;
+            background-color: #222222;
+            border: solid 0.25vw black;
+            margin-bottom: 0.5vw;
+            margin-top: -1.2vw;
+        }
+
+        .input-placeholder::placeholder {
+            color: white;
+        }
+
+        .select-w-h {
+            width: 11.7vw;
+            height: 2.3vw;
+            font-size: 1.38vw;
+            margin-bottom: 0.7vw;
+        }
+
+        .select-border {
+            border-radius: 0.7vw;
+            border: solid 0.2vw #222222;
+        }
+
+        .select-color {
+            color: white;
+            background-color: #222222;
+        }
+
+        .font-color {
+            color: #232941;
+            font-size: 2vw;
+        }
+
+        .container {
+            width: 56vw;
+            height: 41.6vw;
+            background-color: #ffffff;
+            border-radius: 7vw;
+            border: solid 0.46vw #002C2F;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .div {
+            justify-content: center;
+            display: flex;
+        }
+        
+        .check-w-h {
+            width: 2.6vw;
+            height: 1.5vw;
+            margin-bottom: 0vw;
+            margin-top: 0.5vw;
+        }
+        
+        .resultado {
+            overflow: auto;
+            padding: 0.3vw;
+            display: flex;
+            width: 40vw;
+            height: 6vw;
+            background-color: white;
+            border-radius: 2.5vw;
+            font-size: 2.3vw;
+            text-align: center;
+            border: solid 0.33vw #499360;
+            word-break: break-all;
+            margin-bottom: 1vw;
+        }
+
+        #divConverter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #textoIncial {
+            font-size: 1.9vw;
+            font-weight: bolder;
+            margin-top: 0vw;
+            margin-bottom: 0.3vw;
+            color: #232941;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="h1Titulo">Dugu's Machine</h1>
+    <div class="div">
+        <div class="container">
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+
+                <h1 id="h1Converter" style="margin-top: 0.3vw;" class="font-color">Converter</h1>
+                <input autocomplete="off" oninput="alterarResultado()"
+                    class="input-w-h input-border input-color input-focus input-placeholder" id="numeroRecebido"
+                    type="text" placeholder="Digite um valor:">
+                <select class="select-w-h select-border select-color" id="selectBase" onchange="escolherBase()">
+                    <option value="#">Selecione</option>
+                    <option value="10">Decimal</option>
+                    <option value="8">Octal</option>
+                    <option value="16">Hexadecimal</option>
+                    <option value="2">Binário</option>
+                </select>
+
+                <div id="divConverter">
+                    <p id="textoIncial">Escolha uma base acima para realizar a conversão</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    
+    <script>
+        let invalido = 0;
+        let aindaInvalido = 0;
+        var mensagemErro = '<p style="font-size: 1.7vw; font-weight: bolder;">O valor inserido não pode ser convertido!</p>';
+
+        function alterarResultado() {
+            invalido = 0;
+            aindaInvalido = 0;
+            if (selectBase.value == '10') {
+                converterDecimal();
+            } else if (selectBase.value == '8') {
+                converterOctal();
+            } else if (selectBase.value == '16') {
+                converterHexadecimal();
+            } else if (selectBase.value == '2') {
+                converterBinario();
+            }
+        }
+
+        function converterDecimal() {
+            var decimal = Number(numeroRecebido.value);
+            let octal = decimal.toString(8);
+            let hexadecimal = decimal.toString(16);
+            let binario = decimal.toString(2);
+            
+            if (numeroRecebido.value == '') {
+                document.getElementById("divOctal").innerHTML = `0`;
+                document.getElementById("divHexadecimal").innerHTML = `0`;
+                document.getElementById("divBinario").innerHTML = `0`;
+            } else if (octal == 'NaN' || hexadecimal == 'NaN' || binario == 'NaN') {
+                document.getElementById("divOctal").innerHTML = mensagemErro;
+                document.getElementById("divHexadecimal").innerHTML = mensagemErro;
+                document.getElementById("divBinario").innerHTML = mensagemErro;
+            } else {
+                document.getElementById("divOctal").innerHTML = `${octal}`;
+                document.getElementById("divHexadecimal").innerHTML = `${hexadecimal.toUpperCase()}`;
+                document.getElementById("divBinario").innerHTML = `${binario}`;
+            }
+        }
+
+        function converterOctal() {
+            var octal = numeroRecebido.value;
+            let decimal = parseInt(octal, 8);
+            let hexadecimal = decimal.toString(16);
+            let binario = decimal.toString(2);
+
+            if (numeroRecebido.value == '') {
+                document.getElementById("divDecimal").innerHTML = `0`;
+                document.getElementById("divHexadecimal").innerHTML = `0`;
+                document.getElementById("divBinario").innerHTML = `0`;
+            } else if (decimal == 'NaN' || hexadecimal == 'NaN' || binario == 'NaN') {
+                document.getElementById("divDecimal").innerHTML = mensagemErro;
+                document.getElementById("divHexadecimal").innerHTML = mensagemErro;
+                document.getElementById("divBinario").innerHTML = mensagemErro;
+            } else {
+                document.getElementById("divDecimal").innerHTML = `${decimal}`;
+                document.getElementById("divHexadecimal").innerHTML = `${hexadecimal.toUpperCase()}`;
+                document.getElementById("divBinario").innerHTML = `${binario}`;
+            }
+        }
+
+        function converterHexadecimal() {
+            var hexadecimal = numeroRecebido.value;
+            let decimal = parseInt(hexadecimal, 16);
+            let octal = decimal.toString(8);
+            let binario = decimal.toString(2);
+
+            if (numeroRecebido.value == '') {
+                document.getElementById("divDecimal").innerHTML = `0`;
+                document.getElementById("divOctal").innerHTML = `0`;
+                document.getElementById("divBinario").innerHTML = `0`;
+            } else if (decimal == 'NaN' || octal == 'NaN' || binario == 'NaN') {
+                document.getElementById("divDecimal").innerHTML = mensagemErro;
+                document.getElementById("divOctal").innerHTML = mensagemErro;
+                document.getElementById("divBinario").innerHTML = mensagemErro;
+            } else {
+                document.getElementById("divDecimal").innerHTML = `${decimal}`;
+                document.getElementById("divOctal").innerHTML = `${octal}`;
+                document.getElementById("divBinario").innerHTML = `${binario}`;
+            }
+        }
+
+        function converterBinario() {
+            var binario = numeroRecebido.value;
+            let decimal = parseInt(binario, 2);
+            let hexadecimal = decimal.toString(16);
+            let octal = decimal.toString(8);
+
+            if (numeroRecebido.value == '') {
+                document.getElementById("divDecimal").innerHTML = `0`;
+                document.getElementById("divHexadecimal").innerHTML = `0`;
+                document.getElementById("divOctal").innerHTML = `0`;
+            } else if (decimal == 'NaN' || hexadecimal == 'NaN' || octal == 'NaN') {
+                document.getElementById("divDecimal").innerHTML = mensagemErro;
+                document.getElementById("divHexadecimal").innerHTML = mensagemErro;
+                document.getElementById("divOctal").innerHTML = mensagemErro;
+            } else {
+                document.getElementById("divDecimal").innerHTML = `${decimal}`;
+                document.getElementById("divHexadecimal").innerHTML = `${hexadecimal.toUpperCase()}`;
+                document.getElementById("divOctal").innerHTML = `${octal}`;
+            }
+        }
+
+        function escolherBase() {
+            if (selectBase.value == '#') {
+                h1Converter.innerHTML = "Converter";
+                divConverter.innerHTML = '<p id="textoIncial">Escolha uma base acima para realizar a conversão</p>';
+            } else if (selectBase.value == '10') {
+                h1Converter.innerHTML = "Converter Decimal:";
+                divConverter.innerHTML = '<div style="display: flex; flex-direction: row; justify-content: center;"> <input onchange="aparecer_octal()" class="check-w-h" type="checkbox" id="checkOctal"> <b class="font-color">Octal</b> </div> <div style="display: block;" class="resultado" id="divOctal"></div> <div style="display: flex; flex-direction: row; justify-content: center;"> <input onchange="aparecer_hexa()" class="check-w-h" type="checkbox" id="checkHexadecimal"> <b class="font-color">Hexadecimal</b> </div> <div style="display: block;" class="resultado" id="divHexadecimal"></div> <div style="display: flex; flex-direction: row; justify-content: center;"> <input onchange="aparecer_bin()" class="check-w-h" type="checkbox" id="checkBinario"> <b class="font-color">Binário</b> </div> <div style="display: block;" class="resultado" id="divBinario"></div>';
+                converterDecimal();
+                document.getElementById("checkOctal").checked = true;
+                document.getElementById("checkHexadecimal").checked = true;
+                document.getElementById("checkBinario").checked = true;
+            } else if (selectBase.value == '8') {
+                h1Converter.innerHTML = "Converter Octal:";
+                divConverter.innerHTML = '<div style="display: flex; flex-direction: row; justify-content: center;"> <input onchange="aparecer_decimal()" class="check-w-h" type="checkbox" id="checkDecimal"> <b class="font-color">Decimal</b> </div> <div style="display: block;" class="resultado" id="divDecimal"></div> <div style="display: flex; flex-direction: row; justify-content: center;"> <input onchange="aparecer_hexa()" class="check-w-h" type="checkbox" id="checkHexadecimal"> <b class="font-color">Hexadecimal</b> </div> <div style="display: block;" class="resultado" id="divHexadecimal"></div> <div style="display: flex; flex-direction: row; justify-content: center;"> <input onchange="aparecer_bin()" class="check-w-h" type="checkbox" id="checkBinario"> <b class="font-color">Binário</b> </div> <div style="display: block;" class="resultado" id="divBinario"></div>';
+                converterOctal();
+                document.getElementById("checkDecimal").checked = true;
+                document.getElementById("checkHexadecimal").checked = true;
+                document.getElementById("checkBinario").checked = true;
+            } else if (selectBase.value == '16') {
+                h1Converter.innerHTML = "Converter Hexadecimal:";
+                divConverter.innerHTML = '<div style="display: flex; flex-direction: row; justify-content: center;"> <input onchange="aparecer_decimal()" class="check-w-h" type="checkbox" id="checkDecimal"> <b class="font-color">Decimal</b> </div> <div style="display: block;" class="resultado" id="divDecimal"></div> <div style="display: flex; flex-direction: row; justify-content: center;"> <input onchange="aparecer_octal()" class="check-w-h" type="checkbox" id="checkOctal"> <b class="font-color">Octal</b> </div> <div style="display: block;" class="resultado" id="divOctal"></div> <div style="display: flex; flex-direction: row; justify-content: center;"> <input onchange="aparecer_bin()" class="check-w-h" type="checkbox" id="checkBinario"> <b class="font-color">Binário</b> </div> <div style="display: block;" class="resultado" id="divBinario"></div>';
+                converterHexadecimal();
+                document.getElementById("checkDecimal").checked = true;
+                document.getElementById("checkOctal").checked = true;
+                document.getElementById("checkBinario").checked = true;
+            } else if (selectBase.value == '2') {
+                h1Converter.innerHTML = "Converter Binário:";
+                divConverter.innerHTML = '<div style="display: flex; flex-direction: row; justify-content: center;"> <input onchange="aparecer_decimal()" class="check-w-h" type="checkbox" id="checkDecimal"> <b  class="font-color">Decimal</b> </div> <div style="display: block;" class="resultado" id="divDecimal"></div> <div style="display: flex; flex-direction: row; justify-content: center;"> <input onchange="aparecer_octal()" class="check-w-h" type="checkbox" id="checkOctal"> <b class="font-color">Octal</b> </div> <div style="display: block;" class="resultado" id="divOctal"></div> <div style="display: flex; flex-direction: row; justify-content: center;"> <input onchange="aparecer_hexa()" class="check-w-h" type="checkbox" id="checkHexadecimal"> <b class="font-color">Hexadecimal</b> </div> <div style="display: block;" class="resultado" id="divHexadecimal"></div>';
+                converterBinario();
+                document.getElementById("checkDecimal").checked = true;
+                document.getElementById("checkOctal").checked = true;
+                document.getElementById("checkHexadecimal").checked = true;
+            }
+        }
+
+        function aparecer_decimal() {
+            if (divDecimal.style.display == 'block') {
+                divDecimal.style.display = 'none'
+            } else {
+                divDecimal.style.display = 'block'
+            }
+        }
+
+        function aparecer_octal() {
+            if (divOctal.style.display == 'block') {
+                divOctal.style.display = 'none'
+            } else {
+                divOctal.style.display = 'block'
+            }
+        }
+
+        function aparecer_bin() {
+            if (divBinario.style.display == 'block') {
+                divBinario.style.display = 'none'
+            } else {
+                divBinario.style.display = 'block'
+            }
+        }
+
+        function aparecer_hexa() {
+            if (divHexadecimal.style.display == 'block') {
+                divHexadecimal.style.display = 'none'
+            } else {
+                divHexadecimal.style.display = 'block'
+            }
+        }
+    </script>
+</body>
+
+</html>

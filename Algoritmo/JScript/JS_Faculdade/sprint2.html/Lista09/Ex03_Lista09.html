@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3 Lista 09</title>
+</head>
+<body>
+    <H1>Exercício 3 Lista 09</H1>
+    <br>
+    <select  id="select_passageiro">
+        <option selected disabled value="0">Selecione uma opção</option>
+        <option value="1">Comum</option>
+        <option value="2">Estudante</option>
+        <option value="3">Idoso/PNE</option>
+    </select>
+    <br>
+    <select  id="select_passagem">
+        <option selected disabled value="0">Selecione uma opção</option>
+        <option value="4.40">Passagem única</option>
+        <option value="5.90">Passagem integração</option>
+    </select>
+    <br>
+    <button onclick="simular()">Simular preço</button>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+<script>
+    
+    function simular(){
+
+        var passageiro = select_passageiro.value;
+        var passagem = select_passagem.value;
+        
+        if(passageiro == "3" && (passagem == "4.40" || passagem == "5.90")){
+            div_mensagem.innerHTML = `Passagem gratuita`;
+        } else if (passageiro == "1" && passagem == "4.40"){
+            div_mensagem.innerHTML = "Valor da passagem = 4.40 R$";
+        } else if (passageiro == "1" && passagem == "5.90"){
+            div_mensagem.innerHTML = "Valor da passagem = 5.90 R$";
+        } else if (passageiro == "2" && passagem == "4.40"){
+            div_mensagem.innerHTML = "Valor da passagem = 2.20 R$";
+        } else if (passageiro == "2" && passagem == "5.90"){
+            div_mensagem.innerHTML = "Valor da passagem = 2.95 R$";
+        }
+    }
+</script>

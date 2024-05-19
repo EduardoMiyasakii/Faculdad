@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Mostrando os aleatórios</h2>
+    <br>
+    Informe a quantidade de números: <input type="text" id="input_quantidade">
+    <br><br>
+    <Button onclick="sortear()">Sortear</Button>  
+<br><br>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+
+    function sortear(){
+
+        var quantidadeNumeros = input_quantidade.value;
+        div_mensagem.innerHTML = "";
+        
+        
+        for (let index = 1; index <= quantidadeNumeros; index++) {
+            var numeroAleatorio = Math.random();
+            div_mensagem.innerHTML += `${index}° Número aleatório - ${numeroAleatorio} <br>`;
+          
+            
+        }
+    }
+</script>

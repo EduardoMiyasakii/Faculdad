@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 16</title>
+</head>
+
+<body>
+    <h1>Exercício 16</h1>
+    Nome do produto: <input type="text" id="input_nome">
+    <br>
+    Preço de compra: <input type="number" id="input_preco">
+    <br>
+    <button onclick="Cadastrar()">Cadastrar</button>
+    <button onclick="Ver()">Relatório de estoque</button>
+    <br>
+    <b id="b_mensagem"></b>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+<script>
+    var listaProduto = [];
+    var listaPreco = [];
+    var produtoBarato = 0;
+    var valorCompra = 0;
+    var totalValorVenda = 0;
+    var mediaVenda = 0;
+
+    function Cadastrar() {
+        var nome = input_nome.value;
+        var preco = Number(input_preco.value);
+
+        if (nome == "" || preco == "" || preco == 0) {
+            alert("Digite o nome e valor do produto");
+        } else {
+
+            
+            produtoBarato = preco;
+            listaProduto.push(nome);
+            listaPreco.push(preco);
+            console.log(`${listaProduto} ${listaPreco}`);
+
+        }
+    }
+    var produtoCaro = 0;
+
+    function Ver() {
+
+        div_mensagem.innerHTML = "";
+        valorCompra = 0;
+        totalValorVenda = 0;
+        mediaVenda = 0;
+        for (let index = 0; index < listaProduto.length; index++) {
+
+            valorCompra = valorCompra + listaPreco[index];
+
+            if (listaPreco[index] > produtoCaro) {
+                produtoCaro = listaPreco[index];
+                var nomeProdutoCaro = listaProduto[index];
+            }
+            if (listaPreco[index] <= produtoBarato) {
+                produtoBarato = listaPreco[index];
+                var nomeProdutoBarato = listaProduto[index];
+            }
+
+            var acrescimo = listaPreco[index] * 25 / 100;
+            var valorVenda = listaPreco[index] + acrescimo;
+
+            totalValorVenda = totalValorVenda + valorVenda;
+            mediaVenda = totalValorVenda / listaProduto.length;
+
+            div_mensagem.innerHTML += `<b><br>Produto ${index + 1}:
+            ${listaProduto[index]}<br>Preço de compra: ${listaPreco[index].toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}<br>Vender por: ${valorVenda.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</b>`;
+
+        }
+        b_mensagem.innerHTML = `<br>Total de produtos ${listaProduto.length}<br>Produto mais caro: ${nomeProdutoCaro}<br> Produto mais Barato: ${nomeProdutoBarato}<br>A soma de todos os produtos é ${valorCompra.toLocaleString('pt-br',{style:'currency', currency : 'BRL'})}<br> A média de preço de venda é ${mediaVenda.toFixed(2).toLocaleString('pt-br',{style:'currency', currency:'BRL'})}`;
+    }
+</script>

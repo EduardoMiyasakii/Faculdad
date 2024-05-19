@@ -1,0 +1,160 @@
+Estudo ti 
+
+Infraestrutura de Ti
+
+Servidores Convencionais:
+Computadores equipados com um ou mais processadores, bancos de memória, portas de comunicação, softwares etc.
+
+Servidores Virtualizados:
+é o processo de dividir um servidor físico em vários servidores virtuais únicos e isolados por meio de um aplicativo de SW.
+
+Modelos de disponibilização de soluções:
+
+IAAS: Infraestrutura as a Service (Infraestrutura como serviço)
+
+PAAS: Platafrom as a Service(Plataforma como serviço)
+
+Saas: Software as a service
+
+Cloud
+
+- Provisionamento dinâmico de recursos sob demanda;
+
+- Escalabilidade e Elasticidade (Escalabilidade é a capacidade que uma empresa tem de sustentar ou de melhorar seu desempenho, mesmo quando as vendas aumentam);
+
+- Modelo de cobrança é baseada no uso do recurso ao invés de uma fixa;
+
+- Visão única do sistema;
+
+- Distribuição geográfica dos recursos de forma trasnparente.
+
+On Premises: o servidor On Premises tem sua implementação fixada no local da empresa, e requer um planejamento mais detalhado. Importante assegurar que o local tem a capacidade de suportar esse servidor (Procedimentos de segurança, equipe, estrutura etc).
+
+Cloud Services - Exemplo de Pizza
+
+On premises = Fazer em casa
+
+- Mesa ------ (applications)
+- Bebida ------ (data)
+- Eletricidade/gás ------ (Runtine)
+- Forno/Fogão ------ (Middleware)
+- Fogo ------ (O/S)
+- Massa da pizza ------ (Virtualization)
+- Molho de tomate ------ (Serves)
+- Queijo ------ (Storage)
+- Complementos ------ (Networking)
+
+IAAS = Comprar um pizza congelada
+
+- Mesa ------ (applications)
+- Bebida ------ (data)
+- Eletricidade/gás ------ (Runtine)
+- Forno/Fogão ------ (Middleware)
+- Fogo ------ (O/S)
+
+  (Isso é fornecido pela cloud)
+
+- Massa da pizza ------ (Virtualization)
+- Molho de tomate ------ (Serves)
+- Queijo ------ (Storage)
+- Complementos ------ (Networking)
+
+PAAS = Pizza Delivery
+
+- Mesa ------ (applications)
+- Bebida ------ (data)
+
+  (Isso é fornecido pela cloud)
+
+- Eletricidade/gás ------ (Runtine)
+- Forno/Fogão ------ (Middleware)
+- Fogo ------ (O/S)
+- Massa da pizza ------ (Virtualization)
+- Molho de tomate ------ (Serves)
+- Queijo ------ (Storage)
+- Complementos ------ (Networking)
+
+ SAAS = Jantar fora                                
+
+
+  (Nesse caso tudo é fornecido pela cloud)
+
+- Mesa ------ (applications)
+- Bebida ------ (data)
+- Eletricidade/gás ------ (Runtine)
+- Forno/Fogão ------ (Middleware)
+- Fogo ------ (O/S)
+- Massa da pizza ------ (Virtualization)
+- Molho de tomate ------ (Serves)
+- Queijo ------ (Storage)
+- Complementos ------ (Networking)
+
+
+SAAS = Um software ou aplicativo acessado pelo usuário final;
+
+PAAS = Você pode hospedar ou desenvolver um software que será utilizado por usuário finais;
+
+IAAS = Serviços com Backup, Servidores Virtuais, Armazenamento entre outros.
+
+Arquitetura de TI: é uma atribuição da área de Tecnologia da informação, responsável por analisar as necessidades de négocios e o espaço das instalações de uma empresa para e estruturar estrategicamente a alocação e distribuição dos ativos tecnlógicos.
+
+A arquitetura de TI precisa de:
+
+1. Necessidades empresarias;
+      - Objetivos e os problemas organizacionais
+      - A contribuição que TI pode dar
+
+1.2 "Conjuntos:"
+
+      A) Hardware: é um conjunto de dispositivos como processador, monitor, teclado e impressora.
+      B) Software: é um conjunto de programas que permitem que o hardware processe os dados
+      C) Banco de dados: é uma coleção de arquivos relacionados, tabelas, relações, que armazena dados e as associações entre eles.
+      D) Rede: é um sistema de conexão (com ou sem fio) que permite o compartilhamento de recursos por diferentes computadores.     
+
+2. Infraestrutura de TI:
+      - É responsável por analisar as necessidades de negócios de uma empresa, estruturando e planejando estrategicamente a alocação e distribuiçao dos ativos Tecnológicos.  
+
+3. Aplicações existentes e planejadas
+
+O que é um diagrama?
+
+Um diagrama é um desenho, mapa ou plano de alto nível dos recursos tecnológicos e de informação de uma organização ou de uma determinada solução.
+
+- Visão Geral;
+- Entendimento e Organização;
+- Conexão entre os elementos;
+- Visualização de problemas e/ou oportunidades.
+
+
+Scrum Process
+
+1. Vision
+
+2. Product backlog - Totalmente ligado com Product Owner(P.O) - Lista de todos Requisitos que vão surgindo com o desenvolvimento do projeto.
+
+3. Sprint backlog - é uma lista de requisitos para ser realizados durante a sprint - faz um pouco na primeira, um pouco na segunda e assim adiante.
+ 
+      - Requisitos possuem tamanhos que são: PP, P, M, G, GG
+      - Em seguida é associado com os números de Fibonacci: 3, 5, 8, 13, 21
+      - Quem determina o prazo do projeto é o Scrum Master
+        após determinar a velocidade dentro das sprints
+      
+      1. Criar a lista de Backlog
+      2. Classificar
+      3. Priorizar (PO + Cliente)
+      4. Definir o tamanho
+      5. Definir a prioridade
+      6. Planejar a Sprint
+
+4. Sprint de 2-4 semanas com dailys
+5. Novo Mvp
+6. Sprint Review
+7. Restrospectiva
+8. Sprint planning
+9. Recomeça o ciclo
+
+3 funções: Product Owner, Scrum Master, Membros da equipe.
+
+5 eventos: Planejamento da sprint, sprint, scrum daily, revisão da sprint, e retospectiva da sprint.
+
+3 artefatos: Product Backlog, Backlog da sprint, MVP.

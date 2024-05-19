@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prática prova</title>
+</head>
+<body>
+  Informe a distância percorrida <input id="input_dis" placeholder="Ex: 10Km">
+  <br>
+  Informe o tempo da viagem <input id="input_tempo">
+  <br>
+  Informe a quantidade de passageiros <input id="input_qtd">
+  <br>
+  Informe o horário de inicio da viagem <input id="input_hora">
+  <br>
+   <button onclick="realizar()">Realizar viagem</button>
+   <div id="div_msg"></div>
+</body>
+</html>
+<script>
+    var valorTotal = 0;
+    var custoAdd = 0;
+    var custoDesc = 0;
+    var passExtra = 0;
+    var valorBruto = 0;
+    var valorD = 0;
+
+    function realizar(){
+        var km = Number(input_dis.value);
+        var tempoC = Number(input_tempo.value);
+        var qtd = Number(input_qtd.value);
+        var hora = Number(input_hora.value);
+        var custo = km * 0.77;
+        var tempoEst = 1.8 * km;
+        var tempoEstA = tempoEst * 1.1;
+        var tempoEstD = tempoEst * 0.9;
+        var valorAdd = custo * 0.07;
+        var valorDesc = custo * 0.08
+        var qtdG = km /12;
+        var precoG = qtdG * 4;
+        
+        if(tempoEst >= tempoEstA){
+            custoAdd = custo + valorAdd; 
+        } 
+        if (tempoEst<tempoEstD){
+            custoDesc = custo - valorDesc;
+            
+        }
+        
+        if(qtd>=2){
+            var passExtra = (qtd -1) * 3;   
+        }
+        
+        if(hora>20){
+            var bonusH = custo * 0.11;
+            var valorD = custo + bonusH;
+        } else {
+            if(hora<=6)
+            var descH = custo * 0.09;
+        var valorB = custo - descH;
+    }
+    var valorT = custo + custoAdd - custoDesc + passExtra + valorD - valorB;
+    div_msg.innerHTML = "a viagem foi iniciada as " +  hora + "<br> a estimativa de duração da corrida é " + tempoEst + "<br> a duração da corrida informada pelo usuário é " + tempoC + "<br> a distância percorrida " + km + " Km<br>a quantidade de passageiros é " + qtd + " e por conta do valor extra por passageiro vai ter um acrescimo de " + passExtra +"<br> o valor final da corrida é " + valorT + "<br> quantidade de gasolina consumida em litros é " + qtdG + "<br> o valor total da gasolina é " + precoG;
+    
+}
+</script>

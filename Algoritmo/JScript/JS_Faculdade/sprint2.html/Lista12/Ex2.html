@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+<body>
+    <h1>Exercício 2</h1>
+    <br>
+    Informe o destino da viagem:<input type="text" id="input_destino">
+    <br>
+    <button onclick="adicionar()">Adicionar</button>
+    <br>
+    <button onclick="ver1()">Primeira viagem</button>
+    <button onclick="ver3()">Terceira viagem</button>
+    <button onclick="verUltima()">Última viagem</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    var listaDestino = [];
+
+    function adicionar(){
+
+        var destino = input_destino.value;
+
+        listaDestino.push(destino);
+        console.log(listaDestino);
+    }
+
+    function ver1(){
+
+        var destino = input_destino.value;
+        if(listaDestino.indexOf(destino) == -1){ // Poderia ter utilizado if(listaDestino.lenght == 0);
+            div_mensagem.innerHTML = `Ainda não viajou`;
+        } else{
+            div_mensagem.innerHTML = `Sua primeira viagem foi para ${listaDestino[0]}`;
+        }
+    }
+
+    function ver3(){
+        var destino = input_destino.value;
+
+        if(listaDestino[2] == undefined){ // poderia ter utilizado if(listaDestino.lenght < 3)
+            div_mensagem.innerHTML = `Ainda não realizou a terceira viagem`;
+        } else{
+            div_mensagem.innerHTML = `Sua terceira viagem foi para ${listaDestino[2]}`;
+        }
+    }
+
+    function verUltima(){
+       // ver1(); Não funcionaria totalemte desta maneira por conta que chamaria também a primeira viagem;
+       var tamanhoLista = listaDestino.length;
+       var ultimoIndice = tamanhoLista - 1;
+
+        if(listaDestino.length == 0){
+            div_mensagem.innerHTML = `Ainda não viajou`;
+        } else{
+            div_mensagem.innerHTML = `Último destino ${listaDestino[ultimoIndice]}`;
+        }
+
+    }
+</script>

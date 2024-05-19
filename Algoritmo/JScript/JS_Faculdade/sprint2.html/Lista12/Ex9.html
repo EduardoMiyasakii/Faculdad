@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9</title>
+</head>
+<body>
+    <h1>Exercício 9</h1>
+    Informe o nome dos projetos que você já criou <input type="text" id="input_projeto">
+    <br>
+    <button onclick="Registrar()">Registrar projeto</button>
+    <button onclick="Mostrar()">Mostrar projetos</button>
+    <div id="div_mensagem"></div>
+    <b id="b_mensagem"></b>
+</body>
+</html>
+<script>
+    var listaProjetos = [];
+
+    function Registrar(){
+        var projeto = input_projeto.value;
+        var profissional = "";
+
+        if(projeto == ""){
+            alert("Escreva o nome do projeto")
+        }else{
+
+            listaProjetos.push(projeto);
+            console.log(listaProjetos);
+            
+            if(listaProjetos.length <= 4 ){
+                profissional = "Junior";
+            }
+            else if(listaProjetos.length <= 12){
+                profissional = "Pleno";
+            }else{
+                profissional = "Sênior";
+            }
+            div_mensagem.innerHTML = `<br>Você já fez ${listaProjetos.length} Projetos, Por isso você é um profissional ${profissional}`
+        }
+    }
+    function Mostrar(){
+        b_mensagem.innerHTML = "";
+
+        for (let index = listaProjetos.length - 1; index >= 0; index--) {
+            b_mensagem.innerHTML += `<br> O ${index + 1}° criado é o ${listaProjetos[index]}`;
+       
+        }
+    }
+</script>

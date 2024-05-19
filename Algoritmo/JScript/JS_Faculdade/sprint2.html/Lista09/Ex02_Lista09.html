@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Informe a altura da pessoa encotrada: <input type="text" id="input_altura">
+    <br>
+    <select id="select_cor">
+        <option selected disabled value="0">Selecione uma opção</option>
+        <option value="1">Preto</option>
+        <option value="2">Vermelho</option>
+        <option value="3">Amarelo</option>
+        <option value="4">Castanho</option>
+    </select>
+    <br>
+    <button onclick="verificar()">Deu match?</button>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+<Script>
+
+    function verificar() {
+
+        var altura = Number(input_altura.value);
+        var cor = select_cor.value;
+
+        if(altura < 1.85 && (cor == "3" || cor == "4")){
+            div_mensagem.innerHTML = " https://img.freepik.com/fotos-gratis/retrato-de-um-jovem-satisfeito-comemorando-o-sucesso_171337-10186.jpg";
+        } else {
+            div_mensagem.innerHTML = "Homem triste";
+            
+        }
+
+      
+
+    }
+</Script>

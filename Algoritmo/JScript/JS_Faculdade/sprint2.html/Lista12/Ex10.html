@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 10</title>
+</head>
+
+<body>
+    <h1>Exercício 10</h1>
+    <br>
+    Informe as linhas de ônibus que você pegou durante a semana:<input type="text" id="input_linha">
+    <br>
+    Pesquise por uma linha:<input type="text" id="input_pesquisa">
+    <br>
+    <button onclick="Gravar()">Gravar busão</button>
+    <button onclick="Pesquisar()">Pesquisar Linha</button>
+
+    <b id="b_mensagem"></b>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+<script>
+    var ListaLinha = [];
+
+    function Gravar() {
+
+        var linha = input_linha.value;
+
+        if (linha == "") {
+            alert("Digite algo")
+        } else {
+
+            ListaLinha.push(linha);
+            console.log(ListaLinha);
+
+            b_mensagem.innerHTML = "";
+            for (let index = ListaLinha.length - 1; index >= 0; index--) {
+                b_mensagem.innerHTML += `<br>A ${index + 1}° linha pega foi ${ListaLinha[index]}`;
+            }
+        }
+
+    }
+    function Pesquisar() {
+        var linhaPega = [];
+
+        var pesquisa = input_pesquisa.value;
+
+        if (pesquisa == "") {
+
+            alert("Digite algo");
+        }
+        else {
+            if (ListaLinha.indexOf(pesquisa) == -1) {
+                b_mensagem.innerHTML += `<br>Você nunca pegou essa linha`;
+            } else {
+
+                div_mensagem.innerHTML = "";
+
+                for (var index = 0; index < ListaLinha.length; index++) {
+                    if (ListaLinha[index] == pesquisa) {
+
+                        linhaPega.push(index + 1);
+                        console.log(linhaPega);
+                        div_mensagem.innerHTML = `Você já pegou essa linha ${linhaPega.length} Vezes, nessa ordem ${linhaPega}`;
+                    }
+                }
+            }
+        }
+
+    }
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador OU</title>
+    <style>
+        .button {
+            border-radius: 10px;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Controle de gratuidade</h1>
+    <br>
+    Informe a idade: <input class="button" id="input_idade" type="text">
+    <br><br>
+    <button class="button" onclick="verificar()">Verificar idade</button>
+    <b id="b_mensagem"></b>
+    <br>
+    <button  class="button" onclick="limpar()">Limpar mensagens</button>
+ 
+</body>
+
+</html>
+<script>
+
+    function verificar() {
+
+        var idade = Number(input_idade.value);
+
+        if (idade <= 10 || idade >= 60) {
+            b_mensagem.innerHTML += "<br>oferecer gratuidade";
+        } else {
+            b_mensagem.innerHTML += "<br>Esse cidadão não tem direito a gratuidade";
+        }
+        input_idade.value = 0;
+    }
+
+    function limpar(){
+
+        b_mensagem.innerHTML = "" ;
+
+    }
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+</head>
+
+<body>
+    <h1>Desafio</h1>
+    Informe um número inicial:<input type="text" id="input_numeroMenor">
+    <br>
+    Informe um número Final:<input type="text" id="input_numeroMaior">
+    <br>
+    <button onclick="exibir()">Curto 3 e 5!</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+<script>
+
+    function exibir() {
+
+        var numeroMenor = Number(input_numeroMenor.value);
+        var numeroMaior = Number(input_numeroMaior.value);
+
+        for (let index = numeroMenor; index <= numeroMaior; index++) {
+
+            var restoPor3 = index % 3;
+            var restoPor5 = index % 5;
+
+            if (restoPor3 != 0 && restoPor5 != 0) {
+                div_mensagem.innerHTML += + index + "<br>";
+            } else if (restoPor3 == 0 && restoPor5 != 0){
+                div_mensagem.innerHTML += "É TRI!<br>";
+            } else if (restoPor3 != 0 && restoPor5 == 0 ){
+                div_mensagem.innerHTML += "É PENTA!<br>";
+            } else if (restoPor3 == 0 && restoPor5 == 0){
+                div_mensagem.innerHTML += "É TRI!É PENTA!<br>";
+            }
+
+    }
+}
+</script>

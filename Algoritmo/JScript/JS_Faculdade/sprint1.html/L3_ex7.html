@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe seu saldo<input id="input_saldoatt" type="text">
+    <br>
+    <button onclick="mostrar()">Mostrar saldo atual</button>
+    <br>
+    <button onclick="receber()">Receber 100</button>
+    <br>
+    <button onclick="pagar()">Pagar 50</button>  
+</body>
+</html>
+<script>
+    var saldo = 0
+
+    function receber (){
+        saldo = saldo + 100
+        alert ('Transferênci de 100 reias recebida!');
+    }
+    function pagar(){
+      saldo = saldo - 50
+      alert ('Pagamento de 50 efetuado!');
+    }
+    function mostrar(){
+      var valor = Number(input_saldoatt.value);
+        saldo = saldo + valor 
+        alert('seu saldo atual é ' + saldo);
+    } 
+</script>

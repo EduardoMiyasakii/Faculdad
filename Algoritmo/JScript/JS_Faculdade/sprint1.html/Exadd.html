@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Consumidor:<input id="input_nome" type="text">
+    <br>
+    Insira sua média de KWH <input id="input_qtd">
+    <br>
+    <button onclick="calcular()">Calcular conta de luz</button>
+    <br>
+    <button onclick="fechar()">Fechar o dia</button>
+    <div id="div_conta"></div>
+</body>
+</html>
+<script>
+    var contas = 0
+    var contcalc = 0
+    var acres_total = 0
+    var valorF = 0
+    var valorM = 0
+    function calcular(){
+        var nome = input_nome.value;
+        var qtd = Number(input_qtd.value);
+        var qtdM = qtd * 30
+        var total = qtdM * 85/100;
+        var desc = total * 0.1;
+        contas = contas + 1;
+        
+        if(qtdM<100){
+            var totalD = total - desc;
+            div_conta.innerHTML += "<br> Sr/Sra " + nome + "o valor a ser pago é " + total + "<br> com o desconto de 10% fica " + totalD;
+            desc_total = desc = desc;
+        } else {
+            div_conta.innerHTML += "<br>Sr/Sra " + nome + " o valor a ser pago é " + total;
+            if (qtdM>=210){
+                acres_total = desc + desc;
+                var TotalA = total + desc;
+                div_conta.innerHTML += "Sr/Sra " + nome + " o valor a ser pago é " + total + "<br> com o acrescimo de 10% fica " + TotalA;
+            } 
+            
+        }
+    }
+      function fechar(){
+      valorF = 0;
+      valorM = (acres_total + desc_total)/contas;
+      div_conta.innerHTML = "Quantidade de contas calculadas " + contas + "<br> Valor total das contas calculadas: " + valorF + "valor médio das contas calculadas " + valorM;
+      }
+</script>

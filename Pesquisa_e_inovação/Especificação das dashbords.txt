@@ -1,0 +1,7 @@
+A dashboard principal exibirá a temperatura atual do sensor de cada caminhão específico.
+
+A segunda dashboard mostrará a média semanal, na qual os dados serão coletados a cada 10 minutos, resultando em 6 conjuntos de dados por hora. No final, a soma de todos os dados será dividida por 144, que representa o total de dados coletados durante o dia.
+
+A dashboard anual seguirá um processo semelhante, calculando a média da temperatura diária e somando esses dados ao longo de 30 dias. Ao final, a soma será dividida por 30.
+
+Na aba de pesquisa, você poderá buscar por caminhões específicos. Se não houver uma pesquisa realizada, os caminhões com problemas serão listados no topo, seguidos pelos demais caminhões."

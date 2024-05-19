@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex3</title>
+</head>
+<body>
+    Informe um número<input id="input_tab" type="text">
+    <br>
+    <button onclick="ver()">Ver tabuada</button>
+    <br><br>
+    <div id="div_ver"></div>
+</body>
+</html>
+<script>
+    function ver(){
+        var num = Number(input_tab.value);
+        var tab = num * 1;
+        var tab2 = num * 2;
+        var tab3 = num * 3;
+        var tab4 = num * 4;
+        var tab5 = num * 5;
+        var tab6 = num * 6;
+        var tab7 = num * 7;
+        var tab8 = num * 8;
+        var tab9 = num * 9 ;
+        div_ver.innerHTML = + num + " X 1 = " + tab + "<br>" + num + " X 2 = " + tab2 + "<br>" + num + " X 3 = " + tab3 + "<br>" + num + " X 4 = " + tab4 + "<br>" + num + " X 5 = " + tab5 + "<br>" + num + " X 6 = " + tab6 + "<br>" + num + " X 7 = " + tab7 + "<br>" + num + " X 8 = " + tab8 + "<br>" + num + " X 9 =" + tab9;
+    }
+</script>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex4</title>
+</head>
+<body>
+    Sabor da pizza <input id="input_sabor" type="text">
+    <br>
+    Valor da pizza <input id="input_saldo" type="text">
+    <br>
+    Quantidade de amigos que vão pagar <input id="input_amigos" type="text">
+    <br>
+    <button onclick="pagar()">Ver valor por amigo</button>
+    <div id="div_valor"></div>
+    <br><br>
+</body>
+</html>
+<script>
+    function pagar(){
+        var valor = Number(input_saldo.value);
+        var amigos = Number(input_amigos.value);
+        var valoradd = valor * 10/100;
+        var valort = valor + valoradd;
+        var qtd = valort / amigos;
+        div_valor.innerHTML = "Cada amigo vai colaborar com " + qtd + " Para a pizza de " + valort;
+    }
+</script>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex5</title>
+</head>
+<body>
+    Valor da passagem de Ônibus: <input id="input_valor" type="text">
+    <br>
+    Quantidade de viagens por mês: <input id="input_qtd" type="text">
+    <br>
+    Distância do trabalho até sua casa: <input id="input_dis" type="text">
+    <br>
+    <button onclick="calcular()">Calcular VT</button>
+    <div id="div_msg"></div>
+    <br><br>
+</body>
+</html>
+<script>
+    function calcular(){
+        var valor = Number(input_valor.value);
+        var qtd = Number(input_qtd.value);
+        var dist = Number(input_dis.value);
+        var total = valor * qtd * dis ;
+        div_msg.innerHTML = + valor;
+    }
+</script>
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saldo</title>
+</head>
+<body>
+     Valor<input id="input_valor" type="text" placeholder="Ex: 100 r$">
+    <br>
+    <button onclick="depositar()">Depositar</button>
+    <br>
+    <button onclick="retirar()">Retirar</button>
+    <br>
+</body>
+</html>
+<script>
+    var saldo = 0 
+    function depositar(){
+        var deposito1 = Number(input_valor.value);
+        saldo = saldo + deposito1
+        alert(" Deposito de " + deposito1 + " efetuado! Saldo atual: " + saldo);
+    }
+    function retirar(){
+        var deposito1 = Number(input_valor.value);
+        saldo = saldo - deposito1
+        alert(" retirada de " + deposito1 + " efetuada! saldo atual: " + saldo );
+    }
+</script>

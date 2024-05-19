@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantidade de kwh consumidas <input id="input_kwh" type="text">
+    <br>
+    Bandeira tarifária <input id="input_bandeira" type="text">
+    <br>
+    Quantidade de água consumida <input id="input_agua" type="text">
+    <br>
+    Quantidade de vazamentos de água na casa <input id="input_vazamento" type="text">
+    <br>
+    Volume de gás <input id="input_gas" type="text">
+    <br>
+    Quantidade MB consumida <input id="input_mb" type="text">
+    <br>
+    Possui linha telefônica <input id="input_telefone" type="text">
+    <br>
+    <button onclick="calcular()">Calcular despesas fixas</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+ <script>
+    function calcular(){
+        var energia = Number(input_kwh.value);
+        var bandeira = input_bandeira.value;
+        var qtdAgua = Number(input_agua.value);
+        var qtdVazamento = Number(input_vazamento.value);
+        var gas = Number(input_gas.value)
+        var mb = Number(input_mb.value);
+        var telefone = input_telefone.value;
+        
+        var custoEnergia = 0;
+        var custoEnergiaDesconto = custoEnergia * 0.1;
+
+        var custoAgua = 0;
+        custoAgua = qtdAgua * 3.50;
+
+        var custoGas = gas * 2.50;
+        
+        if(bandeira == "verde"){
+            custoEnergia = kwh * 0.75;
+        }
+        if(bandeira = "amarela"){
+            custoEnergia = kwh * 0.90;
+        }
+        if(bandeira = "vermelha"){
+            custoEnergia = kwh * 1;
+        }
+        if(kwh <= 50){
+            CustoEnergia = custoEnergia - custoEnergiaDesconto;
+        }
+        if(qtdVazamento >= 1){
+        custoAgua = custoAgua + qtdvazamento * 10;
+        }
+        div_msg.innerHTML = custoAgua;
+   
+    }
+ </script>

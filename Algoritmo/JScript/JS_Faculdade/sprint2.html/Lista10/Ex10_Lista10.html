@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 10</title>
+</head>
+<body>
+    <h1>Exercício 10</h1>
+    Informe um número: <input type="text" id="input_numeroMenor">
+    <br>
+    Informe um número maior que o anterior <input type="text" id="input_numeroMaior">
+    <br>
+    <button onclick="analisar()">S2 Pares</button>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+<script>
+
+    function analisar(){
+
+        var numeroMenor = Number(input_numeroMenor.value);
+        var numeroMaior = Number(input_numeroMaior.value);
+
+        for (var index = numeroMenor; index <= numeroMaior ; index++) {
+            var resto = index % 2;
+            if(resto == 0){
+                div_mensagem.innerHTML += index + "<br>";
+
+            
+            }
+        }
+         
+}
+</script>

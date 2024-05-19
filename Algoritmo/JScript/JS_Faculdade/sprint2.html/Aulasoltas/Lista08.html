@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 08</title>
+</head>
+
+<body>
+    <h1>Exercício 1</h1>
+    Informe a fruta que chegou na mesa <input id="input_fruta" type="text">
+    <br>
+    <button onclick="comer()">Vai comer?</button>
+
+</body>
+
+</html>
+<script>
+
+    function comer() {
+
+        var fruta = input_fruta.value;
+
+        if (fruta == "uva" || fruta == "abacaxi") {
+            alert(`Sim,vai comer ${fruta}`);
+        } else {
+            alert(`a fruta ${fruta} ela não come`);
+        }
+    }
+</script>
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <br>
+    <h1>Exercício 2</h1>
+    <br>
+    Informe sua nota do enem: <input id="input_notaEnem" type="text">
+    <br>
+    Informe sua nota do vestibular interno: <input id="input_notaInterna" type="text">
+    <br>
+    <button onclick="avaliar()">Avaliação</button>
+
+</body>
+
+</html>
+<script>
+
+    function avaliar() {
+
+        var notaEnem = Number(input_notaEnem.value);
+        var notaInterna = Number(input_notaInterna.value);
+
+        if (notaEnem >= 800 || notaInterna >= 700) {
+            alert("Parabéns!aprovado");
+        } else {
+            alert("Tente semestre que vem");
+        }
+    }
+
+</script>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <br>
+    <h1>Exercício 3</h1>
+    <br>
+    Informe a renda do renda do individuo :<input id="input_rendaIndividuo" type="text">
+    <br>
+    Informe a renda da família: <input id="input_rendaFamilia" type="text">
+    <br>
+    <button onclick="beneficio()">Terei o beneficio</button>
+    <b id="b_mensagem"></b>
+
+</body>
+
+</html>
+<script>
+
+    function beneficio() {
+
+        var rendaIndividuo = Number(input_rendaIndividuo.value);
+        var rendaFamilia = Number(input_rendaFamilia.value);
+
+        if (rendaIndividuo <= 2000 || rendaFamilia <= 3000) {
+            b_mensagem.innerHTML = `<br>Você terá direito ao auxílio`;
+        } else {
+            b_mensagem.innerHTML = `<br>Sem direito ao auxílio`;
+        }
+    }
+</script>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercício 4</h1>
+    <br>
+    Informe o método de pagamento:<input id="input_pagamento" type="text">
+    <br>
+    <button onclick="pagamento()">Analisar compra</button>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+<script>
+
+    function pagamento() {
+
+        var formaPagamento = input_pagamento.value;
+
+        if (formaPagamento == "Dinheiro" || formaPagamento == "Débito") {
+            div_mensagem.innerHTML = `Você terá que pagar a vista`;
+        } else if (formaPagamento == "Crédito" || formaPagamento == "Boleto") {
+            div_mensagem.innerHTML = `Pagamento poderá ser parcelado`;
+        }
+
+    }
+</script>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercício 5</h1>
+    <br>
+    Informe a temperatura atual:<input id="input_temperatura" type="text">
+    <br>
+    <button onclick="Analisar()">Analisar clima</button>
+
+</body>
+
+</html>
+<script>
+
+    function Analisar() {
+        var temperatura = Number(input_temperatura.value);
+
+        if (temperatura < 21 || temperatura > 24) {
+            alert("Alerta de desconforto!");
+            if (temperatura < 21) {
+                alert("As pessoas vão ter hipotermia");
+            } else if (temperatura > 24) {
+                alert("as pessoas vão derreter");
+            }
+        }
+    }
+</script>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercício 6</h1>
+
+    <h2>Calculadora de cansaço do aluno da SPTech</h2>
+    <br>
+    Meio de transporte: <input id="input_transporte" type="text">
+    <br>
+    <button onclick="calcularCansaco()">Calcular cansaço</button>
+
+</body>
+
+</html>
+<script>
+
+    function calcularCansaco() {
+
+        var meioTransporte = input_transporte.value;
+
+        if (meioTransporte == "Carro" || meioTransporte == "Uber") {
+            alert("Tá tranquilo...");
+        }
+        if (meioTransporte == "Mêtro" || meioTransporte == "Ônibus") {
+            alert("Um pouco cansado");
+        }
+        if (meioTransporte == "Bicicleta") {
+            alert("Vish... Vive cansado");
+        }
+    }
+</script>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <br>
+    <h1>Exercício 8</h1>
+    <br>
+    Informe o nome da empresa <input id="input_nomeEmpresa" type="text">
+    <br>
+    Informe o valor da bolsa da empresa <input id="input_bolsa" type="text">
+    <br>
+    Informe o valor do VR da empresa <input id="input_vr" type="text">
+    <br>
+    Informe o tempo de deslocamento da SPTech até a empresa <input id="input_deslocamento" type="text">
+    <br>
+    <button onclick="preferir()">É preferida?</button>
+    <div id="div_mensagem8"></div>
+
+</body>
+
+</html>
+<script>
+    function preferir() {
+
+        var nomeEmpresa = input_nomeEmpresa.value;
+        var bolsa = Number(input_bolsa.value);
+        var vr = Number(input_vr.value);
+        var deslocamento = Number(input_deslocamento.value);
+
+        if (bolsa >= 1800 || vr >= 20 || deslocamento <= 30) {
+            div_mensagem8.innerHTML = `A empresa ${nomeEmpresa} é uma de suas preferências`;
+        } else {
+            div_mensagem8.innerHTML = `A empresa ${nomeEmpresa} está fora da sua lista`;
+        }
+    }
+</script>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <br>
+    <h1>Exercício 9</h1>
+    <br>
+    Informe a marca da TV <input id="input_marca" type="text">
+    <br>
+    Informe o preço da TV <input type="text" id="input_preco">
+    <br>
+    <button onclick="analisarC()">Analisar compra</button>
+    <div id="div_mensagem9"></div>
+
+</body>
+
+</html>
+<script>
+
+    function analisarC() {
+
+        var marca = input_marca.value;
+        var preco = Number(input_preco.value);
+
+        if (preco < 800 || preco > 2000) {
+            div_mensagem9.innerHTML = "TV fora da faixa de preço";
+                if (preco < 800) {
+                div_mensagem9.innerHTML = "preço baixo demais";
+            } else {
+                div_mensagem9.innerHTML = "TV cara demais";
+            }
+        } 
+        if (marca == "Lg" || marca == "Samsung" && (preco > 800 || preco < 2000)) {
+            div_mensagem9.innerHTML = "Essa TV pode entrar na sua lista";
+        } else if (marca == "Mondial" || marca == "Britânia"  && (preco > 800 || preco < 2000)) {
+            div_mensagem9.innerHTML = "Na faixa, porém não confiável"
+        }
+    }
+
+</script>

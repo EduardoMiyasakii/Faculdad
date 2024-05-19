@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1 lista 9</title>
+</head>
+<body>
+    <h1>Exercício 1 lista 9</h1>
+    Informe a nota do atendimento: <input type="" id="input_nota">
+    <br>
+    <button onclick="avaliar()">Avaliar atendimento</button>
+    <b id="b_mensagem"></b>
+    
+</body>
+</html>
+<script>
+
+    function avaliar(){
+
+        var nota = Number(input_nota.value);
+
+        if(nota < 0 || nota > 10){
+            b_mensagem.innerHTML = "<br>Nota inválida";
+        } else if (nota > 0 && nota < 5){
+            b_mensagem.innerHTML = `<br>Não aprovado`;
+        } else if(nota >= 5 && nota <=6 ){
+            b_mensagem.innerHTML = `<br>Neutro`;
+        } else{
+            b_mensagem.innerHTML = `<br>Aprovado`;
+        }
+    }
+</script>

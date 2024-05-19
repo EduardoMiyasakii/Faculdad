@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+</head>
+<body>
+    <h1>Exercício 5</h1>
+    <br>
+    Informe seus filmes favoritos <input type="text" id="input_filme" placeholder="Ex: Harry Potter">
+    <br>
+    <button onclick="Cadastrar()">Cadastrar filmes</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    var totalFilme = 0;
+    var listaFilme = [];
+
+    function Cadastrar(){
+        var filme = input_filme.value;
+        totalFilme ++;
+
+        listaFilme.push(filme);
+        Ver();
+    }
+
+    function Ver(){
+        div_mensagem.innerHTML = "";
+
+        if(listaFilme.length <= 0){
+            window.alert("Nenhum filme registrado");
+        }
+        else if(listaFilme[2] == undefined){
+            div_mensagem.innerHTML += `Seu Filme favorito é: ${listaFilme[0]}<br>Seu 3° Filme favorito: Ainda não foi cadastrado <br>Total de filme Cadastrados: ${totalFilme}`;
+        } 
+        else{
+            div_mensagem.innerHTML += `Seu Filme favorito é: ${listaFilme[0]}<br>Seu 3° Filme favorito: ${listaFilme[2]}<br>Total de filme Cadastrados: ${totalFilme}`;
+        }
+       
+       
+    }
+
+</script>

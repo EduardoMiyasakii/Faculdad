@@ -1,0 +1,16 @@
+Atalhos VsCode
+
+Duplicar linha
+Shift + alt + seta;
+
+Mover linha 
+Alt + seta;
+
+Apagar linha
+Ctrl + shift + k;
+
+Multi seleção sem ser o ctrl d
+alt + click;
+
+Atalhos google
+ctrl shift t Restaura as paginas fechadas 

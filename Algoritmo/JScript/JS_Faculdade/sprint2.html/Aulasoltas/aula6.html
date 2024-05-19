@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média</title>
+</head>
+<body>
+    <h1>Analisar idade</h1>
+    Entre com a idade: <input id="input_idade" type="text">
+    <br>
+    <button onclick="analisar()">Analisar</button> 
+    <br>
+    <button onclick="finalizar()">Finalizar</button>
+</body>
+</html>
+<script>
+    var maior = 0;
+    var menor = 0;
+    var total = 0;
+ function analisar(){
+
+    var idade = Number(input_idade.value);
+
+    if (idade >= 18) {
+        // atalho para fazer um contador
+        //  maior = maior + 1;
+        maior ++;
+        alert ("total de pessoas maior de idade " + maior);
+    } else {
+        menor += 1
+        alert ("total de pessoas menor de idade " + menor);
+        
+    }
+    // total = total + idade
+    total += idade
+
+ }
+  function finalizar(){
+   // var media = total / (menor + maior);
+
+    alert (`a idade média é ${total / (menor + maior)}`);
+     
+  }
+</script>
+
+

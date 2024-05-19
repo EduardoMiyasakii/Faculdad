@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Digite uma fruta <input type="text" id="input_fruta">
+    <button onclick="ver()">Ver frutas</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+<script>
+    var lugarFrutas = ["banana","morango","cebola"];
+
+    function ver() {
+        var fruta = input_fruta.value;
+        var existeFruta = lugarFrutas.indexOf(fruta);
+
+        if (existeFruta == -1) {
+
+            lugarFrutas.push(fruta);
+
+            div_mensagem.innerHTML += `<br>${lugarFrutas}`;
+
+            console.log(lugarFrutas);
+
+            console.log(`O vetor tem ${lugarFrutas.length} Posições`);
+            console.log(`O primeiro valor do vetor é ${lugarFrutas[0]}`);
+        } else {
+            alert("Já existe essa fruta");
+        }
+        // for (let index = 0; index < lugarFrutas.length; index++) {
+        //         div_mensagem.innerHTML += `<br>A ${index + 1}° fruta é ${lugarFrutas[index]}`;
+            
+        // }
+
+        
+        // leitura desse for é
+        // Para cada posição dentro de fruta, faça algo
+        for(var pos in lugarFrutas){
+            console.log(`A posição ${pos} tem a fruta ${lugarFrutas[pos]}`);
+            // console.log(`A cebola está na posição ${lugarFrutas.indexOf("cebola")}`);
+        }
+
+    }
+</script>

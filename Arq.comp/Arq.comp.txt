@@ -1,0 +1,9 @@
+i9 14th generetion promove a arquitetura híbrida de desempenho,e também tem tecnologia para maximizar o número de tarefas simultâneas
+
+AMD ryzen 9 7950X3D
+Esse é um processador de alta performance focado em paralelismo, capaz de lidar com grandes quantidades de trabalho graças aos seus 16 núcleos e 36 threads e a boa performance por núcleo ao usar a tecnologia Zen4.
+
+M2 ULTRA da Apple
+O M2 Ultra tem 134 bilhões de transistores,192Gb de capacidade e 800gb/s de largura de banda
+A GPU pode ser configurada com 60 ou 76 núcleos de última geração
+

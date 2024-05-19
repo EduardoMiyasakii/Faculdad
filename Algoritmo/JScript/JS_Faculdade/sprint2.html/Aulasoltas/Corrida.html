@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<button onclick="corrida()">Corrida</button>
+<div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function corrida (){
+
+        for (let index = 1; index <= 15; index++) {
+            div_mensagem.innerHTML += `${index}`;
+
+            
+        }
+    }
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="ver()">S2 PARES</button>
+   <div id="div_mensagem2"></div>
+
+</body>
+</html>
+<script>
+    function ver(){
+
+        for (let index = 0; index <= 100; index++) {
+           var resto = index % 2;
+           if(resto == 0){
+            div_mensagem2.innerHTML += index;
+           }
+            
+        }
+    }
+</script>

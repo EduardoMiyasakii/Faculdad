@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+
+<body>
+    <h1> Lista 06 </h1>
+    <br>
+    <h1>Exercício 2</h1>
+    <br>
+    Informe a renda familiar: <input id="input_rendaFamilia" type="text">
+    <br>
+    <button style="border-radius:10px;" onclick="analisar()">Analisar renda</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+<script>
+    function analisar() {
+        var rendaFamilia = Number(input_rendaFamilia.value);
+
+        if (rendaFamilia <= 250) {
+            div_mensagem.innerHTML = "Classe E";
+        }
+        else if (rendaFamilia <= 900) {
+            div_mensagem.innerHTML = "Classe D";
+        } else if (rendaFamilia <= 2500) {
+            div_mensagem.innerHTML = "Classe C";
+        } else if (rendaFamilia <= 9500) {
+            div_mensagem.innerHTML = "Classe B";
+        } else {
+            div_mensagem.innerHTML = "Classe A";
+        }
+    }
+</script>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+
+<body>
+    <br>
+    <h1>Exercício 4</h1>
+    Informe o peso: <input id="input_peso" type="text">
+    <br>
+    <button style="border-radius:10px;" onclick="ler()">Ler peso</button>
+    <br>
+    <div id="div_mensagem2"></div>
+</body>
+
+</html>
+<script>
+
+    function ler() {
+        var peso = Number(input_peso.value);
+
+        if (peso <= 13.5) {
+            div_mensagem2.innerHTML = "Abaixo do peso";
+        } else if (peso <= 21.2) {
+            div_mensagem2.innerHTML = "Peso na média";
+        } else {
+            div_mensagem2.innerHTML = " Acima do peso";
+        }
+
+    }
+
+</script>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Exercício 8</title>
+</head>
+
+<body>
+    <br>
+    <h1>Exercício 8</h1>
+    <br>
+    Informe sua meta de economia <input id="input_meta" type="text">
+    <br>
+    Informe quanto tem guardado <input id="input_guardado" type="text">
+    <br>
+    <button style="border-radius:10px;" onclick="analisarE()">Analisar economia</button>
+    <div id="div_mensagem8"></div>
+
+</body>
+
+</html>
+<script>
+    function analisarE() {
+        var metaEconomia = Number(input_meta.value);
+        var valorGuardado = Number(input_guardado.value);
+
+        if (metaEconomia == valorGuardado) {
+            div_mensagem8.innerHTML = "Parabéns,meta alcançada!";
+        } else if (valorGuardado > metaEconomia) {
+            var diferencaboa = valorGuardado - metaEconomia;
+            div_mensagem8.innerHTML = `Parabéns,meta alcançada!<br>Meta ultrapassada em ${diferencaboa}`;
+        } else {
+            var diferencaruim = metaEconomia - valorGuardado;
+            div_mensagem8.innerHTML = `força!Ainda em busca da meta!Falta ${diferencaruim}`
+        }
+
+    }
+</script>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9 Lista 06</title>
+</head>
+
+<body>
+    <br>
+    <h1>Exercício 9</h1>
+    Informe quanto você tem economizado: <input id="input_economia" type="text">
+    <br>
+    <button style="border-radius:10px;" onclick="poder()">Poder de compra</button>
+    <div id="div_mensagem9"></div>
+
+</body>
+
+</html>
+<script>
+    function poder() {
+        var economia = Number(input_economia.value);
+
+        if (economia <= 0) {
+            div_mensagem9.innerHTML = "Nada de compras";
+        } else if (economia < 100) {
+            div_mensagem9.innerHTML = "Viagem de ida e volta pra praia grande";
+        } else if (economia < 4000) {
+            div_mensagem9.innerHTML = "Uma moto boa usada";
+        } else {
+            div_mensagem9.innerHTML = "  Mais alguma bobagem legal"
+        }
+
+    }
+</script>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 07 Exercício 05</title>
+</head>
+
+<body>
+        
+        <br>
+        <h1>Lista 07</h1>
+        <br>
+        <h1>Exercício 5</h1>
+        <br>
+        Informe sua nota: <input id="input_nota" type="text">
+        <br>
+        <button style="border-radius: 10px;" onclick="avaliar()">Avaliar aluno</button>
+        
+</body>
+
+</html>
+<script>
+    function avaliar() {
+        var nota = Number(input_nota.value);
+        if (nota < 6) {
+            alert("Aluno não aprovado!");
+        }
+        else if (nota >= 6 && nota < 8.5) {
+            alert("aluno comum e aprovado");
+        } else {
+            alert("aluno exemplar")
+        }
+
+    }
+</script>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 07 Exercício 8 </title>
+</head>
+
+<body>
+    <center>
+        <br>
+        <h1>Exercício 8</h1>
+        <br>
+        Informe o login: <input id="input_login" type="text">
+        <br>
+        Informe sua senha <input id="input_senha" type="password">
+        <br>
+        Informe seu código de segurança <input id="input_codigo" type="password">
+        <br>
+        <button style="border-radius: 10px;" onclick="entrar()">Entrar</button>
+    </center>
+
+</body>
+
+</html>
+<script>
+    function entrar() {
+        var login = input_login.value;
+        var senha = input_senha.value;
+        var codigo = input_codigo.value;
+
+        if (login == "SPTech" && senha == "digital" && codigo == "123") {
+            alert("Usuário autenticado com sucesso");
+        } else {
+            alert("Falha na autenticação");
+        }
+    }
+</script>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 07 Exercício 9</title>
+</head>
+
+<body>
+    <center>
+        <br>
+        <h1>Exercício 9</h1>
+        <br>
+        Informe a altura mínima aceita: <input id="input_alturaMinima" type="number">
+        <br>
+        Informe a altura máxima aceita: <input id="input_alturaMaxima" type="number">
+        <br>
+        Informe o nome do candidato: <input id="input_nome" type="text">
+        <br>
+        Informe a altura do candidato: <input id="input_altura" type="text">
+        <br>
+        <button style="border-radius: 10px;" onclick="verificar()">Verificar candidato</button>
+        <div id="div_mensagem100"></div>
+
+
+    </center>
+</body>
+
+</html>
+<script>
+    function verificar() {
+
+        var alturaMinima = Number(input_alturaMinima.value);
+        var alturaMaxima = Number(input_alturaMaxima.value);
+        var nome = input_nome.value;
+        var altura = Number(input_altura.value);
+
+        if (alturaMinima > 1 && alturaMaxima > alturaMinima) {
+            if (altura >= alturaMinima && altura <= alturaMaxima) {
+                div_mensagem100.innerHTML = `O candidato ${nome}, com altura de ${altura} metros ,participará do processo de seleção de piloto`;
+            } else {
+                div_mensagem100.innerHTML = `Infelizmente, o candidato ${nome}, com altura de ${altura} metros , não atende os requisitos da seleção`;
+            }
+        }
+        else {
+            alert("Intervalo da altura de seleção é inválido! a altura inicial deve ser maior que 1 e a altura final deve ser maior que a inicial");
+        }
+    }
+</script>

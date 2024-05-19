@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+<body>
+    <h1>Exercício 3</h1>
+    <input type="text" id="input_frase">
+    <br>
+    <button onclick="contar()">Boa tarde</button>
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+<script>
+
+    function contar(){
+
+        var frase = input_frase.value
+        var fraseMiniscula = frase.toLowerCase()
+
+        for (let index = 1; index <= 7; index++) {
+            if(fraseMiniscula == "boa tarde"){
+                div_mensagem.innerHTML +=  index + " . " + frase + "<br>";
+
+            }
+            
+        }
+    }
+</script>

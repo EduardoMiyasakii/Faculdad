@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Mostrando os aleatórios</h2>
+    <br>
+    Informe a quantidade de números: <input type="text" id="input_quantidade">
+    <br><br>
+    <Button onclick="sortear()">Sortear</Button>
+    <br><br>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function sortear() {
+        
+        var texto = "";
+        var numerosAcima = 0;
+        var numerosAbaixo = 0;
+        var Media = 0;
+        var total = 0;
+        var maiorNumero = 0;
+        var menorNumero = 1;
+
+        var quantidadeNumeros = input_quantidade.value;
+        div_mensagem.innerHTML = "";
+        var numeroAleatorio = 0;
+
+        for (let index = 1; index <= quantidadeNumeros; index++) {
+
+            numeroAleatorio = Math.random();
+            total = numeroAleatorio + total;
+            
+            // verificando se o número sorteado é maior que o número anterior sorteador
+            if (numeroAleatorio > maiorNumero) {
+                maiorNumero = numeroAleatorio;
+            }
+            // verificando se o número sorteado é menor que o número anterior sorteador
+            if (numeroAleatorio < menorNumero) {
+                menorNumero = numeroAleatorio;
+                
+            }
+            
+            /* Quando não se sabe o limite do número imposto pela regra de negócio
+            utilizar essa "Fórmula"
+            
+            if (Primeiro == sim){
+                maiorNumero = NumeroAleatorio;
+                menorNumero = numeroAleatorio;
+                primeiro = não
+                
+                */
+               
+               if (numeroAleatorio >= 0.5) {
+                   
+                   numerosAcima ++
+                   texto += `${index}° Número aleatório - ${numeroAleatorio} 
+                   está na metade superior dos números<br>`;
+                   
+                }
+                else {
+                    
+                    numerosAbaixo ++
+                    
+                    texto += `${index}° Número aleatório - ${numeroAleatorio} 
+                    está na metade inferior dos números <br>`;
+                    
+                }
+                media = total / quantidadeNumeros;
+            
+        }
+            div_mensagem.innerHTML = `${texto} <br>Números acima de 0.5 = ${numerosAcima} <br> Números abaixo de 0.5 = ${numerosAbaixo}<br> Maior número sorteado ${maiorNumero} <br>Menor número sorteado ${menorNumero}<br>Média dos números sorteados ${media}`;
+            
+        }
+        
+    </script>

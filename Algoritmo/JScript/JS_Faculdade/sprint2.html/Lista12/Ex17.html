@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 17</title>
+</head>
+
+<body>
+    <h1>Posto Anil Osag</h1>
+    <br>
+    Informe o produto: <input type="text" id="input_produto">
+    <br>
+    Informe a quantidade de produtos <input type="number" id="input_quantidade" placeholder="Informe em litros Ex:10L">
+    <br>
+    <button onclick="Comprar()">Comprar produto</button>
+    <button onclick="Vender()">Vender Produto</button>
+    <b id="b_mensagem"></b>
+</body>
+
+</html>
+<script>
+    var listaProdutos = [];
+    var listaQuantidade = [];
+
+    function Comprar() {
+        var produto = input_produto.value;
+        var quantidade = Number(input_quantidade.value);
+        
+        if (produto == "" || quantidade == "" || quantidade <= 0) {
+            alert("Informe o produto e também a quantidade");
+        } else {
+            if (listaProdutos.indexOf(produto) == -1) {
+                listaProdutos.push(produto);
+                listaQuantidade.push(quantidade);
+            } else {
+                b_mensagem.innerHTML = "";
+                for (let index = 0; index < listaProdutos.length; index++) {
+                    // if (listaProdutos.length != 0) {
+                        if (listaProdutos[index] == produto) {
+                            listaQuantidade[index] = Number(listaQuantidade[index] + quantidade);
+                        }
+                    // }
+                    b_mensagem.innerHTML += `<br>O ${index + 1} produto cadastrado foi ${listaProdutos[index]} e a quantidade é: ${listaQuantidade[index]}`;
+                }
+            }
+            console.log(listaQuantidade);
+            console.log(listaProdutos);
+        }
+    }
+
+    function Vender() {
+        var produto = input_produto.value;
+        var quantidade = input_quantidade.value;
+
+        if (produto == "" || quantidade == "" || quantidade <= 0) {
+            alert("Informe o produto e também a quantidade");
+        }
+        else {
+            if(listaProdutos.indexOf(produto) == -1){
+                alert("O produto não existe na lista")
+            }else{
+
+                for (let index = 0; index < listaProdutos.length; index++) {
+                    if (listaQuantidade[index] >= quantidade) {
+                        if (listaProdutos[index] == produto) {
+                            listaQuantidade[index] = Number(listaQuantidade[index] - quantidade);
+                        }
+                    } else if(quantidade > listaQuantidade[index]){
+                        alert("Quantidade pedida maior que estoque");
+                    }
+                    b_mensagem.innerHTML    = `<br>O ${index + 1} produto cadastrado foi ${listaProdutos[index]} e a quantidade é: ${listaQuantidade[index]}`;
+                }
+                console.log(listaQuantidade);
+                console.log(listaProdutos);
+            }
+        }
+    }
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso</title>
+    <style>
+        body {
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+<script>
+
+    var frase = window.prompt("Digite uma frase");
+    var tamanhoFrase = frase.length;
+    var fraseMaiuscula = frase.toUpperCase();
+    var fraseMiniscula = frase.toLowerCase();
+
+    var numero1 = Number.parseFloat(window.prompt("Digite um número?"));
+    var numero2 = Number.parseInt(window.prompt("digite outro número"));
+    // numero3 = numero1.toString() + numero2.toString();
+
+    numero3 = numero1 + numero2;
+
+    div_mensagem.innerHTML += `A soma entre ${numero1} e ${numero2} é ${numero3}`;
+    div_mensagem.innerHTML += `<br>O tamanho da frase é ${tamanhoFrase} e ela maiuscula é ${fraseMaiuscula} e ela minuscula é ${fraseMiniscula}`
+    // para transformar em string existem dois jeitos 
+    // exemplo.toString(); ou String(n);
+</script>

@@ -1,0 +1,73 @@
+body {
+    
+    margin: 0;
+    background-image: url(AprendendoCss.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+}
+
+h1{
+
+    /*border-width: 10px;*/
+    /* border-right-color: skyblue; */
+    border: solid 10px;
+    border-color:rgb(158, 142, 187);
+   
+    background: linear-gradient(to left,skyblue,rgb(158, 142, 187));
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     
+ }
+    
+ p{
+
+    border: solid 10px;
+    border-color:rgb(158, 142, 187);
+    background: linear-gradient(to left,skyblue,rgb(158, 142, 187));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+img {
+
+    float: right;
+}
+    
+.box{
+
+    width: 122px;
+    height: 100px;
+    border: solid 1px;
+    border-color:rgb(158, 142, 187);
+    font-size: 40px;
+    text-align: center;
+
+     /*float: right;
+
+    /* se quiser que uma mensagem saia do lado escreva clear:right ou left onde está localizada a
+     mensagem exemplo p{
+        clear:right; 
+      
+       se der um position absolute e o código não centralizar de um transform:translate(-50% , -50%);
+}
+*/
+}
+/* #box1 {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+}
+
+#box2{
+
+    position: fixed;
+    top: 30%;
+    right: 46%;
+}
+ 
+#box3{
+    position: absolute;
+} */

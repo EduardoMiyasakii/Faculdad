@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 13</title>
+</head>
+<body>
+    <h1>Exercício 13</h1>
+
+    <p>Informe de quantos em quantos dias você treina: <input type="text" id="input_treino"></p>
+    <br>
+    <button onclick="exibir()">Exibir rotina mensal</button>
+    <br>
+    <p id="p_mensagem"></p>
+</body>
+</html>
+<script>
+    
+    var diaDescanso = 0;
+
+    function exibir(){
+
+        var diaTreino = Number(input_treino.value);
+
+        for (let index = 0; index <= 30; index++) {
+            // diasDescanso = diaTreino - 1;
+            var resto = index % diaTreino;
+            if(resto == 0){
+                p_mensagem.innerHTML += `Dia ${index} - de Musculação<br>`;
+            } else {
+                p_mensagem.innerHTML += `Dia ${index} - comer,dormir<br>`
+            }
+            
+           
+        }
+    }
+</script>
+        
+      

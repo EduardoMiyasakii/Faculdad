@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe seu salário <input id="input_salario" type="text">
+    <br>
+    Informe seu adicional mensal <input id="input_add" type="text">
+    <br>
+    Informe seu bônus <input id="input_bonus" type="text">
+    <br>
+    <button onclick="analisar()">Analisar minha renda</button>
+    <div id="div_msg"></div>
+
+</body>
+</html>
+<script>
+       var salarioLiq = 0
+    function analisar(){
+        var salario = Number(input_salario.value);
+        var add = Number(input_add.value);
+        var bonus = Number(input_bonus.value);
+        var salarioB = salario + add + bonus;
+        div_msg.innerHTML = salarioB;
+        if(salarioB >= 10000){
+          var impostoR = salarioB / 8;
+          var descimp = salarioB - impostoR;
+          var inss = descimp * 0.1;
+          var descinss = descimp - inss;
+          var fgts = descimp * 0.08;
+          var descfgts = descimp - fgts;
+          var descT = impostoR + inss + fgts;
+          salarioLiq = salarioB - descT;
+        div_msg.innerHTML = salarioLiq;
+        } else {
+            var impostoR = 0;
+            var inss = salarioB * 0.1;
+            var descinss = salarioB - inss;
+            var fgts = salarioB * 0.08;
+            var descfgts = salarioB - fgts;
+            var descT = inss + fgts;
+            salarioLiq = salarioB - descT;
+            div_msg.innerHTML = salarioLiq;
+        }
+    }
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    Frase: <input type="text" id="input_frase">
+    <button onclick="clicar()">Exibir</button>
+    <br>
+    
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+<script>
+    // var frase = "";
+    var texto = "";
+    var cont = 1;
+
+    function clicar() {
+
+       var frase = input_frase.value;
+        texto += `${frase}<br>`;
+        
+      div_mensagem.innerHTML = texto
+        
+        if (cont < 5) {
+            cont++;
+            clicar();
+
+        }
+    }
+
+</script>

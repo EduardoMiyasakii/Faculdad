@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe a distância percorrida <input id="input_dis" type="text">
+    <br>
+    Informe o tempo de duração da viagem <input id="input_tempo" type="text">
+    <br>
+    Informe a quantidade de passageiros <input id="input_qtd" type="text">
+    <br>
+    Que horas iniciou a corrida <input id="input_inicio" type="text">
+    <br>
+    <button onclick="realizar()">Realizar viagem</button>
+    <div id="div_msg"></div>
+    
+</body>
+</html>
+<script>
+        var custo = 0
+    function realizar(){
+        var km = Number(input_dis.value);
+        var duracao = Number(input_tempo.value);
+        var qtd = Number(input_qtd.value);
+        var inicio = Number(input_inicio.value);
+        var custo = km * 0.77;
+        var tempoest = km * 1.8;
+        var tempoestadd = tempoest * 1.1;
+        var tempoestdesc = tempoest * 0.9;
+    
+        if (tempoest>=tempoestadd){
+        var add = custo * 7/100;
+        var custoadd = custo + add;
+        div_msg.innerHTML = custoadd;
+        } else {
+            var desc = custo * 8/100;
+            var custodesc = custo - desc;
+            div_msg.innerHTML = custodesc;
+        }
+        if(qtd>2){
+        var passextra = (qtd - 1) * 3;
+        }
+        if(inicio<=6){
+            var bonush = custo * 9/100;
+            var custoh = custo - bonush;
+            div_msg.innerHTML = custoh;
+        } else {
+            custoh = custo;
+        div_msg.innerHTML = custoh;
+        }
+        if(inicio>20)
+        var acres = custo * 11/100;
+        var custoh = custo + acres;
+        div_msg.innerHTML = custoh;
+
+    }
+</script>

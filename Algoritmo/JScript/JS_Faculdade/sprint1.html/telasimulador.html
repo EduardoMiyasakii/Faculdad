@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador financeiro</title>
+</head>
+
+<body>
+    Informe o nome do museu <input id="input_nome" type="text">
+    <br>
+    Informe a quantidade de obras <input id="input_quantidadeobras" type="text">
+    <br>
+    Informe a estação <input id="input_estacao">
+    <br>
+    Informe a região do museu <input id="input_regiao">
+    <button onclick="analisar()">Ver perda</button>
+    <div id="div_msg"></div>
+</body>
+
+</html>
+<script>
+    function analisar() {
+        var quantidadeobras = Number(input_quantidadeobras.value);
+        var estacao = input_estacao.value;
+        var regiao = input_regiao.value;
+        var umidade = 0;
+
+        var custoObras = quantidadeobras * 4000;
+
+        if (regiao == "centro-oeste") {
+
+        }
+        if (estacao == "verão") {
+            var umidade = 56;
+            div_msg.innerHTML = "Na região " + regiao + " e na estação " + estacao + " a umidade fica " + umidade + "%";
+
+        }
+        if (estacao == "outono") {
+            var umidade = 75;
+            div_msg.innerHTML = "Na região " + regiao + " e na estação " + estacao + " a umidade fica " + umidade + "%";
+
+        }
+        if (estacao == "inverno") {
+            var umidade = 61;
+            div_msg.innerHTML = "Na região " + regiao + " e na estação " + estacao + " a umidade fica " + umidade + "%";
+
+        }
+        if (estacao == "primavera") {
+            var umidade = 67.5;
+            div_msg.innerHTML = "Na região " + regiao + " e na estação " + estacao + " a umidade fica " + umidade + "%";
+
+        }
+
+        if (regiao == "norte") {
+
+        }
+        if (estacao == "verão") {
+            var umidade = 72.5;
+            div_msg.innerHTML = "Na região " + regiao + " e na estação " + estacao + " a umidade fica " + umidade + "%";
+
+        }
+        if (estacao == "outono") {
+            var umidade = 69.25;
+            div_msg.innerHTML = "Na região " + regiao + " e na estação " + estacao + " a umidade fica " + umidade + "%";
+        }
+        if (estacao == "inverno") {
+            var umidade = 51.75;
+            div_msg.innerHTML = "Na região " + regiao + " e na estação " + estacao + " a umidade fica " + umidade + "%";
+
+        }
+        if (estacao == "primavera") {
+            var umidade = 66.5;
+            div_msg.innerHTML = "Na região " + regiao + " e na estação " + estacao + " a umidade fica " + umidade + "%";
+        }
+
+        if (regiao == "sudeste") {
+
+        }
+        if (estacao == "verão") {
+            var umidade = 70;
+            div_msg.innerHTML = "Na região " + regiao + " e na estação " + estacao + " a umidade fica " + umidade + "%";
+
+        }
+        if (estacao == "outono") {
+            var umidade = 68;
+            div_msg.innerHTML = "Na região " + regiao + " e na estação " + estacao + " a umidade fica " + umidade + "%";
+
+        }
+        if (estacao == "inverno") {
+            var umidade = 58.75;
+            div_msg.innerHTML = "Na região " + regiao + " e na estação " + estacao + " a umidade fica " + umidade + "%";
+
+        }
+        if (estacao == "primavera") {
+            var umidade = 66.25;
+            div_msg.innerHTML = "Na região " + regiao + " e na estação " + estacao + " a umidade fica " + umidade + "%";
+
+        }
+        if (regiao == "sul") {
+
+        }
+        if (estacao == "verão") {
+            var umidade = 77.7;
+            div_msg.innerHTML = "Na região " + regiao + " e na estação " + estacao + " a umidade fica " + umidade + "%";
+        }
+        if (estacao == "outono") {
+            var umidade = 75;
+            div_msg.innerHTML = "Na região " + regiao + " e na estação " + estacao + " a umidade fica " + umidade + "%";
+
+        }
+        if (estacao == "inverno") {
+            var umidade = 74.25;
+            div_msg.innerHTML = "Na região " + regiao + " e na estação " + estacao + " a umidade fica " + umidade + "%";
+
+        }
+        if (estacao == "primavera") {
+            var umidade = 76;
+            div_msg.innerHTML = "Na região " + regiao + " e na estação " + estacao + " a umidade fica " + umidade + "%";
+        }
+
+        if (regiao == "nordeste") {
+
+        }
+        if (estacao == "verão") {
+            var umidade = 77;
+            div_msg.innerHTML = "Na região " + regiao + " e na estação " + estacao + " a umidade fica " + umidade + "%";
+
+
+        }
+        if (estacao == "outono") {
+            var umidade = 76;
+            div_msg.innerHTML = "Na região " + regiao + " e na estação " + estacao + " a umidade fica " + umidade + "%";
+
+        }
+        if (estacao == "inverno") {
+            var umidade = 65;
+            div_msg.innerHTML = "Na região " + regiao + " e na estação " + estacao + " a umidade fica " + umidade + "%";
+
+        }
+        if (estacao == "primavera") {
+            var umidade = 61;
+            div_msg.innerHTML = "Na região " + regiao + " e na estação " + estacao + " a umidade fica " + umidade + "%";
+
+        }
+        div_msg.innerHTML += "<br>Com nosso sistema você pode economizar até " + custoObras;
+    }
+</script>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 12</title>
+</head>
+<body>
+    <h1>Exercício 12</h1>
+
+   Informe seu primeiro número  <select  id="select_numero1">
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                                    </select>
+<br>
+Informe que número você deseja que seja mutliplicado <input type="text" id="input_multiplicador">
+<br>
+ <button onclick="ver()">Ver tabuada</button>
+ <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+    function ver(){
+        
+        var n1 = Number(select_numero1.value);
+        var n2 = Number(input_multiplicador.value);
+
+        div_mensagem.innerHTML = "";
+        for (var index = 1; index <= n2 ; index++) {
+          //* var Resultado = n1 * index;
+           //* div_mensagem.innerHTML += Resultado + "<br>";
+
+            var resto = index % 2;
+
+            if(resto > 0){
+                div_mensagem.innerHTML += `<Span style="color:blue;">${n1} X ${index} = ${index * n1}<br></span>`
+
+            } else {
+                div_mensagem.innerHTML += `<Span style="color:red;">${n1} X ${index} = ${index * n1}<br></span>`
+
+            }
+            
+            
+        }
+    }
+</script>

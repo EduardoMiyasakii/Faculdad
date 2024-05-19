@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* body{
+            font: normal 20pt arial;
+        } */
+    </style>
+</head>
+
+<body>
+    Informe quanto de dinheiro voce tem:<input type="text" id="input_dinheiro">
+    <br>
+    <div id="div_mensagem"></div>
+    <button onclick="Ver()">Ver dinheiro</button>
+    <br>
+</body>
+
+</html>
+<script>
+
+    var nome = window.prompt("Qual é o seu nome?")
+    document.writeln(`Olá ${nome}, seu nome tem ${nome.length} letras<br>`);
+    document.writeln(`Seu nome em maiusculo é ${nome.toUpperCase()}<br>`);
+    document.writeln(`Seu nome em minusculo é ${nome.toLowerCase()}<br>`);
+
+    function Ver() {
+
+        var numero1 = Number.parseFloat(input_dinheiro.value);
+        div_mensagem.innerHTML += `${numero1.toFixed(2).replace('.', ",")}<br>`;
+        div_mensagem.innerHTML += `${numero1.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}<br>`;
+        div_mensagem.innerHTML += numero1.toLocaleString('pt-BR', { style: 'currency', currency: 'USD' });
+    }
+</script>

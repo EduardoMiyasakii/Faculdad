@@ -1,0 +1,16 @@
+Desktops
+O Arch Linux é uma distribuição,conhecido por 5 pontos: simplicidade, modernidade, pragmatismo, centralidade no usuário e versatilidade.
+o Debian é uma distribuição que tem o acesso a repositório online,progamas livres populares como libreoffice,firefox,etc.
+Manjaro que é uma distribuição que tem como principais características o processo simples e intuitivo de instalação, a detecção automática da grande maioria do hardware, possibilidade de gerir/configurar drivers da placa gráfica recorrendo a bash scripting, e um conjunto considerável de configurações ao nível do desktop.
+Mint =distribuição linux sem nenhum custo para usuários domésticos e empresas, sendo ao mesmo tempo o mais eficiente, fácil de usar e elegante possível.
+MacOs=é um nativo da apple associados ao design gráfico de alta potência por algum tempo.
+windowsNt= nativo que tem funções multiusuário, ou seja, mantém um banco de contas de usuários que utilizam ou acessam a máquina além de informações de segurança sobre eles.
+Ubuntu=distribuição,adequado para computação em nuvem, servidores, desktops e dispositivos de internet das coisas
+redHat=distribuição que ajuda os líderes de negócios e suas equipes de operações a priorizar o gerenciamento de cargas de trabalho e permite que os desenvolvedores implantem o código como preferirem
+Linux=distribuição que tem função multitarefa, multiusuário, conexão com outros tipos de sistemas operacionais, segurança quanto a proteção de processos executados na memória RAM, não há licença para seu uso, etc.
+
+Dispositivos Móveis
+android=é um sistema aberto mas considerado nativo que atende diferentes tipos de conectividade (GSM, CDMA, Wi-Fi, Bluetooth), assim como vários suportes de mídia (AVI, MKV, FLV, MPEG4 e etc) e formatos de imagem (JPEG, PNG, GIF, BMP, MP3 e etc).
+IOS=nativo da apple que possui interface gráfica do usuário intuitiva e fácil de usar do iOS.
+A loja de aplicativos do iOS, a App Store, é rigorosamente monitorada pela Apple para garantir a segurança dos usuários.Integração com outros produtos da Apple, como o iCloud e a Apple TV, através do recurso AirPlay.Atualizações regulares do iOS para adicionar novos recursos e melhorias de desempenho.
+WIndows Mobile=nativo que a Microsoft incluiu, no sistema, aplicativos conhecidos nos computadores. O Office, por exemplo, possuía versões móveis do Word, Excel, PowerPoint e Outlook. Outros programas eram o navegador Internet Explorer e o tocador Windows Media Player

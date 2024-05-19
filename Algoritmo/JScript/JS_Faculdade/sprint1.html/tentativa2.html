@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Valor do salário <input id="input_salario" type="text">
+     <br>
+    Adicional mensal <input id="input_add" type="text">
+     <br>
+     bônus do úsuario <input id="input_bonus" type="text">
+     <br>
+     <button onclick="analisar()">Analisar minha renda</button>
+     <div id="div_msg"> </div>
+</body>
+</html>
+<script>
+        var salarioliq = 0
+    function analisar(){
+        salario = Number(input_salario.value);
+        addmen = Number(input_add.value);
+        bonus = Number(input_bonus.value);
+         salarioB = salario + addmen + bonus;
+         if(salarioB >= 10000){
+         var impostoR = salarioB / 8;
+         var descimp = salarioB - impostoR;
+         var inss = descimp * 10/100;
+         var descinss = descimp - inss;
+         var fgts = descimp * 8/100;
+         var descfgts = descimp - fgts;
+         var descT = impostoR + inss + fgts;
+         salarioliq = salarioB - descT;
+         div_msg.innerHTML = "<b>Análise da sua renda</b> <br> Com o salário de " + salario + " R$ com o adicional de " + addmen + " R$ e o bônus de " + bonus + " R$ , você tem:<br>Salário bruto: " + salarioB + " R$<br>Imposto de renda: " + impostoR + " R$ <br>INSS: " + inss + " R$ <br> FGTS: " + fgts + " R$<br> Salário líquido: " + salarioliq + "R$";
+         } else {
+            var impostoR = 0;
+            var inss = salarioB * 10/100;
+            var descinss = salarioB - inss;
+            var fgts = salarioB * 8/100;
+            var descfgts = salarioB - fgts;
+            var descT = inss + fgts;
+             salarioliq = salarioB - descT;
+            div_msg.innerHTML = "<b>Análise da sua renda </b> <br> Com o salário de " + salario + " R$ com o adicional de " + addmen + " R$ e o bônus de " + bonus + " R$ , você tem:<br>Salário bruto: " + salarioB + " R$<br>Imposto de renda: " + impostoR + " R$ <br> INSS: " + inss + " R$ <br> FGTS: " + fgts + " R$ <br> Salário líquido " + salarioliq;
+         }
+         if(salarioliq > 2500){
+           var eco = salarioliq * 15/100;
+           var ecoano = eco * 12;
+          div_msg.innerHTML += "<br>Com a renda de " + salarioliq + " R$ , é recomendado poupar " + eco + " R$  ,  para que em um ano tenha poupado " + ecoano + " R$";
+         } else {
+            div_msg.innerHTML += "<br>Com a renda de " + salarioliq + " R$ , é recomendado obter renda extra para realizar uma poupanca";
+         }
+    }
+</script>
