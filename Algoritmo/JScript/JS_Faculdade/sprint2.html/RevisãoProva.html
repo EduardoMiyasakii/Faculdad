@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        .telaEscondida{
+            display: none;
+        }
+    </style>
+<body>
+
+    <div id="Home">
+        Informe o corte da carne: <input type="text" id="input_corte">
+        <br>
+        Informe o peso em gramas: <input type="text" id="input_peso">
+        <br>
+        Informe o preço em kg: <input id="input_preco">
+        <br>
+        Informe o nome do hamburguer: <input type="text" id="input_nomeHamburguer">
+        <br>
+        <button onclick="Adicionar()">Adicionar ingrediente ao blend</button>
+        <button onclick="Preparar()">Preparar Blend</button>
+        <div id="div_mensagem"></div>
+        <div id="div_erro"></div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    var listaCorte = [];
+    var listaPeso = [];
+    var listaPreco = [];
+
+    function Adicionar(){
+
+        var corte = input_corte.value;
+        var peso = input_peso.value;
+        var precoKg = input_preco.value;
+
+        if(corte == "" || peso <= 0 || precoKg <= 0){
+
+            div_erro.innerHTML = "Informe o nome do corte e/ou peso da carne e/ou Preço em kg"
+        } 
+        else {
+            indiceCorte = listaCorte.indexOf(corte);
+
+            if(indiceCorte == -1){
+
+                listaCorte.push(corte);
+                listaPeso.push(peso);
+                listaPreco.push(precoKg);
+
+                console.log(listaCorte);
+                console.log(listaPeso);
+                console.log(listaPreco);
+
+                div_mensagem.innerHTML = `<br><b>Registro feito com sucesso </b>`
+            } else {
+                
+                div_erro.innerHTML = "Esse corte já foi adicionado anteriormente";
+            }
+
+
+        }
+    }
+
+    function Preparar(){
+
+        var nomeHamburguer = input_nomeHamburguer.value;
+
+        if(nomeHamburguer == "" || listaCorte.length < 2){
+
+            div_erro.innerHTML = "Insira o nome do hamburguer e/ou insira mais de 1 ingrediente"
+        }
+
+    }
+
+
+    
+    
+</script>
