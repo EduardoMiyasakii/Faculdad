@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de dados</title>
+</head>
+
+<body style="background-color: skyblue;color: #2d2d2d;">
+
+    <h1>Jogo de dados</h1>
+    <br>
+    Quantos R$ Você vai apostar <input type="text" id="input_valor">
+    <br>
+    Informe os seus números da sorte:<input type="text" id="input_numero" placeholder="1,5,7">
+    <br>
+    <button onclick="jogar()">Valendo</button>
+    <br>
+    <button onclick="Cadastrar()">Cadastrar número da sorte</button>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+<script>
+    
+    var listaSorte = [];
+    var saldo = 0;
+    var PartidasGanhas = 0;
+    var PartidasPerdidas = 0;
+    
+    function Cadastrar(){
+        
+        var numero = Number(input_numero.value);
+
+        var indiceNumero = listaSorte.indexOf(numero);
+
+        if(numero == "" || numero < 2 || numero > 12){
+            alert("Informe um número que seja maior que 2 e menor que 12");
+        }
+        else if(indiceNumero == -1 && listaSorte.length < 3){
+
+            listaSorte.push(numero);
+            console.log(listaSorte);
+
+        } else if(indiceNumero != -1 || listaSorte.length == 3){
+            alert("O número já foi cadastrado e o número máximo são três números da sorte")
+        } 
+
+    }
+    function jogar() {
+        
+        var texto = "";
+
+        var valorAposta = Number(input_valor.value);
+        var numero = Number(input_numero.value);
+
+        var rodadas = Math.random();
+        var rodadasFixa = rodadas.toFixed(1);
+        rodadasFixa = rodadasFixa * 10 + 10;
+        
+        if(valorAposta > 0){
+
+            if (rodadasFixa >= 10) {
+                alert("Número de rodadas que você ira jogar " + rodadasFixa);
+            }
+
+            for (let index = 1; index < rodadasFixa; index++) {
+                
+                var Dado1 = Math.random();
+                var Dado1Fixo = Dado1.toFixed(1);
+                Dado1Fixo = Dado1Fixo * 5 + 1;
+                restoDado1 = Dado1Fixo % 1
+                
+                if (restoDado1 > 0) {
+                    Dado1Fixo = Number.parseInt(Dado1Fixo);
+                }
+                
+                var Dado2 = Math.random();
+                var Dado2Fixo = Dado2.toFixed(1);
+                Dado2Fixo = Dado2Fixo * 5 + 1;
+                restoDado2 = Dado2Fixo % 1
+                
+                if (restoDado2 > 0) {
+                    Dado2Fixo = Number.parseInt(Dado2Fixo);
+                }
+                
+                var totalDado = Dado1Fixo + Dado2Fixo;
+            }
+
+                for (let index = 0; index < rodadasFixa; index++) {
+                  
+                    if (listaSorte[0] == numero) {
+                        
+                        saldo = saldo + valorAposta * 5;
+                        
+                        PartidasGanhas ++;
+                        
+                        texto += `
+                        <br>O valor sorteado para o primeiro dado é ${Dado1Fixo} o valor sorteado para o segundo dado é ${Dado2Fixo}<br> e você GANHOU a rodada <br> Seu saldo atual é ${saldo}`
+                        
+                } else if(listaSorte[1] == numero) {
+                    
+                    saldo = saldo + valorAposta * 5;
+                        
+                        PartidasGanhas ++;
+                        
+                        texto += `
+                        <br>O valor sorteado para o primeiro dado é ${Dado1Fixo} o valor sorteado para o segundo dado é ${Dado2Fixo}<br> e você GANHOU a rodada <br> Seu saldo atual é ${saldo}`
+                        
+                    
+                }
+                else if(listaSorte[2] == numero) {
+                    
+                    saldo = saldo + valorAposta * 5;
+                        
+                        PartidasGanhas ++;
+                        
+                        texto += `
+                        <br>O valor sorteado para o primeiro dado é ${Dado1Fixo} o valor sorteado para o segundo dado é ${Dado2Fixo}<br> e você GANHOU a rodada <br> Seu saldo atual é ${saldo}`
+                        
+                    
+                } else{
+                    saldo = saldo - valorAposta;
+                    
+                    PartidasPerdidas ++;
+                    
+                    texto += `<br>O valor sorteado para o primeiro dado é ${Dado1Fixo} o valor sorteado para o segundo dado é ${Dado2Fixo}<br> e você PERDEU a rodada <br> Seu saldo atual é ${saldo}`
+                }
+                div_mensagem.innerHTML = texto;
+            }
+                
+            if(saldo > 0){
+                
+                texto += `<br><h1 style ="color:white">Parabéns você conseguiu ganhar R$ ${saldo} <br> Número de rodadas vencidas ${PartidasGanhas}<br>Número de rodadas perdidas ${PartidasPerdidas} </h1>`;
+            } else if(saldo == 0){
+                texto += `<br><h1 style ="color:white"> EMPATE Isso é incrível a probabilidade disso acontecer é bem baixa!!!!</h1>`;
+            } else {
+                texto += `<br><h1 style ="color:white">Pague o que me deve ${saldo}<br> Número de rodadas vencidas ${PartidasGanhas}<br>Número de rodadas perdidas ${PartidasPerdidas}</h1>`;
+            }
+            div_mensagem.innerHTML = texto;
+        } else{
+            alert("Valor de aposta tem que ser maior que 0");
+        }
+    }
+        
+        function Validar(){
+            
+            var numero = Number(input_numero.value);
+            
+            
+        }
+        
+    </script>

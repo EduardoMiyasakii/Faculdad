@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 19</title>
+</head>
+<body>
+    <h1>Exercício 19</h1>
+
+    Informe os filmes que já viu na vida: <input type="text" id="input_filme">
+    <br>
+    Vejas os filmes de: <input type="text" id="input_inicio">
+    Até: <input type="text" id="input_final"> 
+    <br>
+    <button onclick="Cadastrar()">Cadastrar</button>
+    <br>
+    <button onclick="Listar()">Listar Filmes</button>
+    <br>
+    <button onclick="Filtrar()">Filtrar</button>
+    <div id="div_mensagem"></div>
+    <div id="mensagem"></div>
+    <b id="b_mensagem"></b>
+
+</body>
+</html>
+
+<script>
+
+    var listaFilmes = [];
+
+    function Cadastrar(){
+
+        var filme = input_filme.value;
+
+        if(filme == ""){
+
+        } else{
+
+            listaFilmes.push(filme);
+            console.log(listaFilmes);
+
+            div_mensagem.innerHTML = `Você já assistiu ${listaFilmes.length} Filmes`;
+        }
+        
+}
+
+function Listar(){
+
+    mensagem.innerHTML = "";
+
+    for (let index = listaFilmes.length -1 ; index >= 0; index--) {
+
+        mensagem.innerHTML += `<br>${index + 1}° Filme : ${listaFilmes[index]}`;
+        
+    }
+}
+
+function Filtrar(){
+        
+        var primeiroIntervalo = (input_inicio.value);
+        var ultimoIntervalo = input_final.value;
+        
+        if(primeiroIntervalo == "" || ultimoIntervalo == ""){
+            alert("Informe os intervalos");
+        }
+        else if(primeiroIntervalo > ultimoIntervalo || primeiroIntervalo <= 0){
+            alert("Primeiro número deve ser menor que o segundo");
+        } 
+        else {
+
+            b_mensagem.innerHTML = "";
+
+            for (let index = ultimoIntervalo; index >+ primeiroIntervalo; index--) {
+
+                b_mensagem.innerHTML += `<br>${index + 1} música: ${listaFilmes[index]}`
+                
+                
+            }
+        }
+    }
+
+</script>

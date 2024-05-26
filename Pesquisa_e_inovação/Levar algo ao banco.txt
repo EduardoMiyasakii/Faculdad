@@ -1,0 +1,10 @@
+Levar algo ao banco
+routes,controller e models
+
+trazer algo do banco
+models,controller e routes
+
+req pede
+e res é a respota
+
+ 

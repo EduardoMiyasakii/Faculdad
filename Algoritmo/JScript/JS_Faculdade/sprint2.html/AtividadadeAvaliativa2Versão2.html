@@ -31,53 +31,63 @@
     var listaCorte = [];
     var listaPeso = [];
     var listaPreco = [];
-    var pesoTotal = 0;
 
     function Adicionar() {
         var corte = input_corte.value;
-        var peso = input_peso.value;
-        var preco = input_preco.value;
+        var peso = Number(input_peso.value);
+        var preco = Number(input_preco.value);
 
         if (corte == "" || peso <= 0 || preco <= 0 || peso == "" || preco == "") {
             alert("Insira as informações corretamente");
         } else {
-            
+
             var indice = listaCorte.indexOf(corte);
-            
+
             if (indice == -1) {
-                
+
                 listaCorte.push(corte);
                 listaPeso.push(peso);
                 listaPreco.push(preco);
-              
+
                 console.log(listaCorte);
                 console.log(listaPreco);
                 console.log(listaPeso);
-                
+
             } else {
                 alert("O corte já foi adicionado anteriormente");
             }
         }
     }
-    
-    var soma = 0;
-    
-    function Preparar(){
+
+    function Preparar() {
+
         b_mensagem.innerHTML = "";
-        for (let index = 0; index < listaCorte.length; index++) {
+
+        var pesoTotal = 0;
+        var precoTotal = 0
+        for (var ind = 0; ind < listaPeso.length; ind++) {
+         pesoTotal += listaPeso[ind];
             
+
+        }
+
+        for (var index = 0; index < listaCorte.length; index++) {
+
             var PrecoG = listaPreco[index] * 0.1;
             var precoCorte = listaPeso[index] * PrecoG / 100;
-            
-            var pesoTotal =+ listaPeso[index];
-            var pesoHamburguer = Number((listaPeso[index] / pesoTotal)* 100);
-            
-            b_mensagem.innerHTML += `<br>O ${index + 1}° tipo de corte foi ${listaCorte[index]}<br>
-            O Preço da carne é ${precoCorte.toLocaleString('pt-br',{style:'currency',currency:'BRL'})}<br>
-            E o percentual de peso da carne ${listaCorte[index]} é ${pesoHamburguer}%`;
-            
-            
+
+            var precoTotal = precoTotal + precoCorte;
+
+            var pesoHamburguer = Number((listaPeso[index] / pesoTotal) * 100);
+
+            b_mensagem.innerHTML += `<br><br>O ${index + 1}° tipo de corte foi ${listaCorte[index]}<br>
+            O Preço da carne é ${precoCorte.toFixed()}R$<br>
+            E o percentual de peso da carne ${listaCorte[index]} é ${pesoHamburguer.toFixed()}%
+            <br>E o peso total é ${pesoTotal}<br>
+           `;
+
         }
+        div_mensagem.innerHTML = `<br>Preço total é ${precoTotal.toFixed(2)}<br>`;
     }
 
 </script>

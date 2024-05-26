@@ -31,8 +31,10 @@ fkProjeto int,
 horas DECIMAL(3,1),
 FOREIGN KEY(fkFuncionario)
  REFERENCES Funcionario(idFuncionario),
+ 
  FOREIGN KEY(fkProjeto)
  REFERENCES Projeto(idProjeto),
+ 
  CONSTRAINT pkComposta PRIMARY KEY(fkFuncionario,fkProjeto)
  );
 
@@ -293,7 +295,7 @@ FROM Projeto
 INNER JOIN Departamento
 ON Projeto.fkDepartamento = Departamento.idDepartamento
 INNER JOIN Funcionario 
-ON Funcionario.idFuncionario = Departamento.fkGerente
+ON Funcionario.fkDepartamento = Departamento.idDepartamento
 WHERE Projeto.localProjeto = 'São Paulo';
 
 --   Exibir o idFunc e o nome do funcionário,
@@ -318,11 +320,11 @@ FROM Funcionario
 WHERE dataNascimento < '1980-12-31';
 
 -- Exibir a quantidade de salários diferentes que existem na empresa.
-SELECT DISTINCT salario,
+SELECT COUNT(DISTINCT salario) as "Salários distintos",
 FuncProj.fkProjeto
 FROM Funcionario
 INNER JOIN FuncProj
-ON Funcionario.idFuncionario = FuncProj.fkProjeto
+ON Funcionario.idFuncionario = FuncProj.fkFuncionario
 group by fkProjeto;
 
 --    Exibir a quantidade de locais diferentes de projeto.

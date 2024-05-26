@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 20</title>
+</head>
+
+<body>
+    <h3>Exercício 20</h3>
+    <br>
+    Informe o nome do produto: <input type="text" id="input_produto">
+    <br>
+    Informe o preço do produto: <input type="text" id="input_preco">
+    <br>
+    <select id="select_preco">
+        <option disabled selected value="#">Selecione um filtro</option>
+        <option value="1">Preços acima de</option>
+        <option value="2">Preços abaixo de</option>
+    </select>
+    <br>
+    Informe o valor do produto:<input type="text" id="input_valor">
+    <br>
+    <button onclick="Cadastrar()">Cadastrar</button>
+    <br>
+    <button onclick="Atualizar()">Atualizar Estoque</button>
+    <br>
+    <button onclick="Filtrar()">Filtrar Produtos</button>
+
+    <div id="div_mensagem"></div>
+    <b id="b_mensagem"></b>
+    <div id="msg_final"></div>
+
+</body>
+
+</html>
+
+<script>
+    var listaProduto = [];
+    var listaPreco = [];
+    precoTotal = 0;
+
+    function Cadastrar() {
+
+        var produto = input_produto.value;
+        var preco = input_preco.value;
+
+        if (produto.length <= 3 && preco <= 0) {
+            b_mensagem.innerHTML = ``
+
+        }
+        else {
+            listaProduto.push(produto);
+            listaPreco.push(preco);
+
+            console.log(listaProduto);
+            console.log(listaPreco);
+
+        }
+    }
+
+    function Atualizar() {
+
+        div_mensagem.innerHTML = `<br>Você tem ${listaProduto.length} cadastrados no estoque`;
+
+        for (let index = 0; index < listaProduto.length; index++) {
+
+            precoTotal += Number(listaPreco[index]);
+
+            div_mensagem.innerHTML += `<br>${index + 1}° Produto = ${listaProduto[index]} - Preco ${listaPreco[index]} `
+
+        }
+        div_mensagem.innerHTML += `<br>Seu estoque vale ${precoTotal}`
+    }
+
+    function Filtrar() {
+
+        msg_final.innerHTML = '';
+
+        var preco = Number(input_preco.value);
+        var valor = Number(input_valor.value);
+        var tipo = select_preco.value;
+
+
+        if (valor == '' || tipo == '#') {
+            alert('Informe um valor e/ou tipo válido');
+        } 
+        else {
+            for (let index = 0; index <= listaPreco.length; index++) {
+                if (tipo == '1') {
+                    if (listaPreco[index] > valor) {
+                        msg_final.innerHTML += `Produto: ${listaProduto[index]} - R$${listaPreco[index]}<br>`;
+                    }
+                } else if (tipo == '2') {
+                    if (listaPreco[index] < valor) {
+                        msg_final.innerHTML += `Produto: ${listaProduto[index]} - R$${listaPreco[index]}<br>`;
+                    }
+                }
+            }
+
+            input_valor.value = '';
+            select_preco.value = '#';
+
+        }
+    }
+
+</script>

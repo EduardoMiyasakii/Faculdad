@@ -27,7 +27,7 @@
     function Comprar() {
         var produto = input_produto.value;
         var quantidade = Number(input_quantidade.value);
-        
+
         if (produto == "" || quantidade == "" || quantidade <= 0) {
             alert("Informe o produto e também a quantidade");
         } else {
@@ -38,9 +38,9 @@
                 b_mensagem.innerHTML = "";
                 for (let index = 0; index < listaProdutos.length; index++) {
                     // if (listaProdutos.length != 0) {
-                        if (listaProdutos[index] == produto) {
-                            listaQuantidade[index] = Number(listaQuantidade[index] + quantidade);
-                        }
+                    if (listaProdutos[index] == produto) {
+                        listaQuantidade[index] = Number(listaQuantidade[index] + quantidade);
+                    }
                     // }
                     b_mensagem.innerHTML += `<br>O ${index + 1} produto cadastrado foi ${listaProdutos[index]} e a quantidade é: ${listaQuantidade[index]}`;
                 }
@@ -58,20 +58,30 @@
             alert("Informe o produto e também a quantidade");
         }
         else {
-            if(listaProdutos.indexOf(produto) == -1){
+            if (listaProdutos.indexOf(produto) == -1) {
                 alert("O produto não existe na lista")
-            }else{
+            } else {
 
                 for (let index = 0; index < listaProdutos.length; index++) {
+
                     if (listaQuantidade[index] >= quantidade) {
+
                         if (listaProdutos[index] == produto) {
+
                             listaQuantidade[index] = Number(listaQuantidade[index] - quantidade);
+
                         }
-                    } else if(quantidade > listaQuantidade[index]){
-                        alert("Quantidade pedida maior que estoque");
                     }
-                    b_mensagem.innerHTML    = `<br>O ${index + 1} produto cadastrado foi ${listaProdutos[index]} e a quantidade é: ${listaQuantidade[index]}`;
+                    else if (quantidade > listaQuantidade[index]) {
+
+                        alert("Quantidade pedida maior que estoque");
+
+                    }
+
+                    b_mensagem.innerHTML = `<br>O ${index + 1} produto cadastrado foi ${listaProdutos[index]} e a quantidade é: ${listaQuantidade[index]}`;
+
                 }
+
                 console.log(listaQuantidade);
                 console.log(listaProdutos);
             }

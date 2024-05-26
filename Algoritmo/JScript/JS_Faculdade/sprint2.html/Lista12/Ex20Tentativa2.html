@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 20</title>
+</head>
+
+<body>
+    <h3>Exercício 20</h3>
+
+    Informe o nome do produto: <input type="text" id="input_nome">
+    <br>
+    Informe o preço do produto: <input type="text" id="input_preco">
+    <br>
+    <select id="select_preco">
+        <option selected disabled value="#">Selecione uma opção</option>
+        <option value="1">Acima de</option>
+        <option value="2">Abaixo</option>
+    </select>
+    Informe o valor:<input type="text" id="input_valor">
+    <br>
+    <button onclick="Cadastrar()">Cadastrar</button>
+    <button onclick="Atualizar()">Atualizar estoque</button>
+    <button onclick="Filtrar()">Filtrar produtos</button>
+    <br>
+    <div id="div_erro"></div>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    var listaProduto = [];
+    var listaPreco = [];
+
+    var PrecoEstoque = 0;
+
+    function Cadastrar() {
+
+        var nome = input_nome.value;
+        var preco = input_preco.value;
+
+        if (nome == "" || preco <= 0 || nome.length <= 3) {
+
+            div_erro.innerHTML = `Informe o nome e preço do produto válidos(nome tem que ter mais de 3 letras)`;
+
+        } else {
+
+            listaProduto.push(nome);
+            listaPreco.push(preco);
+
+            console.log(listaProduto);
+            console.log(listaPreco);
+
+            div_mensagem.innerHTML = `</b>Produto cadastrado com sucesso</b>`
+
+        }
+
+    }
+
+    function Atualizar() {
+
+        if(listaProduto.length == 0){
+
+            div_erro.innerHTML = `Nenhum item cadastrado`;
+        }
+        else{
+
+            div_mensagem.innerHTML += `<br>Você tem ${listaProduto.length} produtos cadastrados em estoque`;
+            
+            for (let index = 0; index < listaProduto.length; index++) {
+                
+                PrecoEstoque += Number(listaPreco[index]);
+                
+                div_mensagem.innerHTML += `<br>${index + 1} - ${listaProduto[index]} - R$ ${listaPreco[index]}`
+            }
+            div_mensagem.innerHTML += `<br>Seu estoque vale: R$ ${PrecoEstoque}`
+        }
+        
+    }
+    function Filtrar() {
+
+        var valor = input_valor.value;
+
+        if (select_preco.value == '#') {
+
+            div_erro.innerHTML = 'Escolha uma opção válida'
+
+        } else if (select_preco.value == "1") {
+
+            div_mensagem.innerHTML = "";
+
+            for (let index = 0; index < listaProduto.length; index++) {
+                
+                if(listaPreco[index] > valor){
+                    div_mensagem.innerHTML += `<br>${index + 1}° Produto: ${listaProduto[index]}<br>
+                    Preço produto: ${listaPreco[index]}`
+                }
+            }
+          
+        } else{
+
+            div_mensagem.innerHTML = "";
+            for (let index = 0; index < listaProduto.length; index++) {
+                
+                if(listaPreco[index] < valor){
+                    div_mensagem.innerHTML += `<br>${index + 1}° Produto: ${listaProduto[index]}<br>
+                    Preço produto: ${listaPreco[index]}`
+                }
+            }
+            
+        }
+    }
+</script>
