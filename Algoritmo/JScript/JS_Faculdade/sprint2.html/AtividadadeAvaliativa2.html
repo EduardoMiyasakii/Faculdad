@@ -55,7 +55,7 @@
                 listaPeso.push(peso);
                 listaPreco.push(preco);
                 listaTotal.push(total);
-                
+
                 console.log(total);
                 console.log(listaCorte);
                 console.log(listaPreco);
@@ -66,16 +66,16 @@
             }
         }
     }
-    
+
     var soma = 0;
     function Preparar() {
 
         msg.innerHTML = '';
-        
+
         for (let index = 0; index < listaCorte.length; index++) {
-            soma +=  listaTotal[index];
+            soma += listaTotal[index];
             msg.innerHTML += `${listaCorte[index]} | 
-                                ${listaTotal[index].toFixed(2)}<br>`;
+            ${listaTotal[index].toFixed(2)}<br>`;
             b_mensagem.innerHTML = `<br> ${soma.toFixed(2)}`;
         }
     }

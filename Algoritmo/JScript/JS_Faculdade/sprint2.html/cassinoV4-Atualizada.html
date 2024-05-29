@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cassino v4</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    }
+
+
+    body {
+        backdrop-filter: drop-shadow(4px 4px 10px blue);
+
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url(https://static.vecteezy.com/ti/fotos-gratis/p1/13604100-ternopil-ucrania-15-de-maio-de-2022-muitos-cartoes-de-jogo-uno-coloridos-em-fundo-azul-uno-e-um-jogo-de-cartas-americano-do-tipo-derramamento-que-e-jogado-com-um-baralho-especialmente-impresso-gratis-foto.JPG);
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+    }
+
+    button {
+        width: 110px;
+        height: 70px;
+        border: none;
+        font-size: larger;
+        text-align: center;
+        border-radius: 5px;
+        border: 3px solid rgb(255, 255, 255);
+        background-color: rgb(56, 56, 56);
+        color: rgb(252, 240, 255);
+    }
+
+
+    input {
+        width: 60px;
+        height: 90px;
+        border: none;
+        font-size: larger;
+        text-align: center;
+        border-radius: 5px;
+        border: 2px solid black;
+    }
+
+    p {
+        margin: 10px;
+        font-size: larger;
+        color: rgb(0, 0, 0);
+    }
+
+    .cards {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .msg {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        font-size: 20px;
+
+    }
+</style>
+
+<body>
+    <div id="container" class="container">
+
+        <br><br><br><br>
+        <h1>UNA APOSTA</h1>
+        <br><br>
+
+        <div class="cards">
+            <p>Qual o seus números da sorte: <input style="background-color: rgb(245, 248, 78);" type="text"
+                    id="input_numsorte"></p>
+            <button onclick="cadNum()">Cadastrar número da sorte</button>
+
+            <p>Quantas balas você irá apostar: <input style="background-color: rgb(237, 43, 43);" type="text"
+                    id="input_qtdbalas"></p>
+            <button onclick="calcular()">VALENDO</button>
+
+            <p>Pesquisar por rodadas:
+                De: <input style="background-color: rgb(237, 43, 43);" type="text" id="input_partidasInicio">
+                Até: <input style="background-color: rgb(237, 43, 43);" type="text" id="input_partidasFim"></p>
+            <button onclick="relembrar_partidas()">Pesquisar rodadas</button>
+
+            <p>Pesquisar pelo valor de um dado:
+                <input style="background-color: rgb(237, 43, 43);" type="text" id="input_pesquisa">
+            </p>
+            <button onclick="pesquisar_dado()">Pesquisar dado</button>
+        </div>
+
+
+        <div class="msg" id="div_msg"></div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var saldo = 0;
+    var PartidasGanhas = 0;
+    var PartidasPerdidas = 0;
+
+    var lista_soma = [];
+    var lista_j1 = [];
+    var lista_j2 = [];
+    var lista_result = [];
+    var lista_saldo = [];
+
+    var ganhou = 'Você Ganhou!';
+    var perdeu = 'Você Perdeu :(';
+
+    function calcular() {
+        div_msg.innerHTML = '';
+
+        var qtdBalas = Number(input_qtdbalas.value);
+        // var numSorte = Number(input_numsorte.value);
+
+        if (lista_sorte.length == 3) {
+
+            if (qtdBalas % 1 == 0 && qtdBalas > 0) {
+
+                // SORTEAR NUM DE RODADAS
+                var minR = 10;
+                var maxR = 20;
+                var intervaloR = maxR - minR;
+
+                var aleatorio = Math.random();
+                var rodadas = aleatorio * intervaloR + minR;
+                var qtdRodadas = rodadas.toFixed();
+
+                alert(`A quantidades de rodadas são ${qtdRodadas}`)
+
+                // Declaração das variáveis fora do loop de vezes
+                var minVez = 1;
+                var maxVez = 6;
+                var intervaloVez = maxVez - minVez;
+
+                var primeiro_valor = 0;
+                var segundo_valor = 0;
+
+                
+                for (var index = 1; index <= qtdRodadas; index++) {
+
+                    // VEZ 1 E VEZ 2
+                    for (var vez = 1; vez <= 2; vez++) {
+                        var aleatorioVez = Math.random();
+                        var cadaAleatorioVez = aleatorioVez * intervaloVez + minVez;
+                        var inteiroAleatorioVez = cadaAleatorioVez.toFixed();
+                        
+                        if (vez == 1) {
+                            primeiro_valor = Number(inteiroAleatorioVez);
+                            lista_j1.push(primeiro_valor);
+                            console.log(lista_j1);
+                        } else if (vez == 2) {
+                            segundo_valor = Number(inteiroAleatorioVez);
+                            lista_j2.push(segundo_valor);
+                            console.log(lista_j2)
+                        }
+                    }
+
+                    var soma = primeiro_valor + segundo_valor;
+                    
+                    div_msg.innerHTML += `<span style="font-weight: bold;"><br>${index}º RODADA<br></span>`;
+                    
+                    div_msg.innerHTML += `<span style="font-weight: bold;">Números da sorte: ${lista_sorte}<br></span>`;
+                    // for (var i = 0; i < 1; i++) {
+                    if (soma == lista_sorte[0]) {
+                        saldo = saldo + qtdBalas * 5;
+                        PartidasGanhas++;
+                        lista_result.push(ganhou);
+                        div_msg.innerHTML += `<span style="font-weight: bold;
+                        color: rgb(3, 166, 14);">Você ganhou!</span>`;
+                        // console.log(lista_result);
+
+                    }
+                    else if (soma == lista_sorte[1]) {
+                        saldo = saldo + qtdBalas * 5;
+                        PartidasGanhas++;
+                        lista_result.push(ganhou);
+                        div_msg.innerHTML += `<span style="font-weight: bold;
+                        color: rgb(3, 166, 14);">Você ganhou!</span>`;
+
+                    }
+                    else if (soma == lista_sorte[2]) {
+                        saldo = saldo + qtdBalas * 5;
+                        PartidasGanhas++;
+                        lista_result.push(ganhou);
+                        div_msg.innerHTML += `<span style="font-weight: bold;
+                        color: rgb(3, 166, 14);">Você ganhou!</span>`;
+
+                    } else if (soma != lista_sorte) {
+                        saldo = saldo - qtdBalas;
+                        PartidasPerdidas++;
+                        lista_result.push(perdeu);
+                        div_msg.innerHTML += `<span style="font-weight: bold;
+                        color: rgb(180, 3, 3);">Você perdeu :( </span>`;
+                    }
+                    // }
+                    console.log(lista_result);
+
+                    lista_soma.push(soma);
+                    lista_saldo.push(saldo);
+
+                    console.log(lista_soma);
+                    console.log(lista_saldo);
+
+                    div_msg.innerHTML += `<span style=" display: flex; text-align: center; flex-direction: column; font-size: 18px">
+                    Primeiro dado: ${primeiro_valor}<br>
+                    Segundo dado: ${segundo_valor}<br>
+                    Soma: ${soma}<br>
+                    <span style=" color: rgb(9, 81, 215);font-weight: bold;">Saldo: ${saldo}</span><br>`;
+
+                    primeiro_valor = 0;
+                    segundo_valor = 0;
+                    soma = 0;
+                }
+
+                // Resumo do jogo
+                div_msg.innerHTML += `<span style="font-weight: bold;"><br>RESUMO DO JOGO:<br></span>`;
+
+                if (saldo == 0) {
+                    div_msg.innerHTML += "Empate! Incrível, a probabilidade disso é pequena!<br>";
+                } else if (saldo > 0) {
+                    div_msg.innerHTML += `Parabéns! Você terminou o jogo com um saldo a receber de ${saldo} balas!<br>`;
+                } else {
+                    div_msg.innerHTML += `Você terminou o jogo com um saldo negativo de ${saldo} balas. Você deve ${saldo} balas.<br>`;
+                }
+
+                div_msg.innerHTML += `<br><span style="font-weight: bold; margin-bottom: 50px">Você ganhou ${PartidasGanhas} vezes e perdeu ${PartidasPerdidas} vezes.</span>`;
+
+            } else {
+                alert("O número deve ser inteiro e maior que 0.")
+            }
+        } else {
+            alert('Cadastre seus números da sorte antes de jogar!')
+        }
+
+        input_qtdbalas.value = '';
+    }
+
+    var lista_sorte = [];
+
+    function cadNum() {
+        var numSorte = Number(input_numsorte.value);
+
+        var ind = lista_sorte.indexOf(numSorte);
+        console.log(ind);
+
+        if (numSorte == '') {
+            alert('Escolha um número da sorte');
+        } else if (numSorte < 2 || numSorte > 12) {
+            alert("O número da sorte deve ser inteiro e entre 2 e 12.")
+        } else if (lista_sorte.length == 3) {
+            alert('Você já escolheu 3 números da sorte');
+        } else if (ind != -1) {
+            alert('Você já escolheu esse número como número da sorte');
+        } else if (ind == -1 && lista_sorte.length < 3) {
+            lista_sorte.push(numSorte);
+        }
+
+        console.log(lista_sorte);
+        input_numsorte.value = '';
+    }
+
+
+    function relembrar_partidas() {
+        div_msg.innerHTML = '';
+
+        var inicio = Number(input_partidasInicio.value);
+        var fim = Number(input_partidasFim.value);
+
+        if (inicio == '' || fim == '') {
+            alert('Informe o intervalo de partidas que deseja ver');
+        } else if (inicio > fim || inicio <= 0) {
+            alert('Informe um intervalo válido');
+        } else {
+            for (var i = inicio - 1; i <= fim - 1; i++) {
+                div_msg.innerHTML += `<br><span style="font-weight: 800;">Rodada ${[i + 1]} </span>
+                <span style="font-weight: bold; color: yellow">${lista_result[i]}</span>
+                Primeiro dado: ${lista_j1[i]}<br>
+                Segundo dado: ${lista_j2[i]}<br>
+                Soma: ${lista_soma[i]}<br>
+                <span style=" color: rgb(9, 81, 215);font-weight: bold;">Saldo:  ${lista_saldo[i]}</span><br>`;
+            }
+        }
+
+        input_partidasInicio.value = '';
+        input_partidasFim.value = '';
+    }
+
+    function pesquisar_dado() {
+        var num_pesquisa = Number(input_pesquisa.value);
+
+        if (num_pesquisa == '' || num_pesquisa < 1 || num_pesquisa > 6) {
+            alert('Informe um valor válido para o dado (entre 1 e 6).');
+        } else {
+            div_msg.innerHTML = '';
+            for (var i = 0; i < lista_j1.length; i++) {
+                if (lista_j1[i] == num_pesquisa || lista_j2[i] == num_pesquisa) {
+                    div_msg.innerHTML += `<br><span style="font-weight: 800;">Rodada ${i + 1} </span>
+                    <span style="font-weight: bold; color: rgb(167, 15, 209);">${lista_result[i]}</span>
+                    Primeiro dado: ${lista_j1[i]}<br>
+                    Segundo dado: ${lista_j2[i]}<br>
+                    Soma: ${lista_soma[i]}<br>
+                    <span style=" color: rgb(9, 81, 215);font-weight: bold;">Saldo:  ${lista_saldo[i]}</span><br>`;
+                }
+            }
+        }
+
+        if (div_msg.innerHTML == '') {
+            alert('Esse número não foi sorteado em nenhuma rodada.');
+        }
+
+        input_pesquisa.value = '';
+    }
+</script>
