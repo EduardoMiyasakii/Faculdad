@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+
+<body>
+    <h1>Exercício 3</h1>
+    Saldo:
+    Depósitos:
+    Saques:
+
+    <button onclick="Depositar()">Depositar 100</button>
+    <button onclick="Sacar()">Sacar 20</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+
+    var Campanha = {};
+
+    var saldo = 0;
+    var depositos = 0;
+    var saques = 0;
+
+    function Depositar() {
+
+        saldo += 100;
+        depositos++;
+        Campanha = {
+            saldo: saldo,
+            depositos: depositos,
+            saques: saques
+        }
+
+        div_mensagem.innerHTML = `Saldo: ${Campanha.saldo}<br>
+         Depositos: ${Campanha.depositos}<br>
+         Saques: ${Campanha.saques}`
+    }
+
+    function Sacar() {
+
+
+        saldo -= 20;
+        saques++;
+
+        Campanha = {
+            saldo: saldo,
+            depositos: depositos,
+            saques: saques
+        }
+
+        div_mensagem.innerHTML = `Saldo: ${Campanha.saldo}<br>
+         Depositos: ${Campanha.depositos}<br>
+         Saques: ${Campanha.saques}`
+    }
+    
+</script>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uber</title>
+</head>
+
+<body>
+    <h1>Uber</h1>
+
+    <h3>De:</h3>
+    <label>
+        Informe seu CEP:<input type="text" id="input_Cep" oninput="Buscar('um')" maxlength="8">
+    </label>
+    <br>
+
+    <label>
+        Informe sua Cidade:<input type="text" id="input_Cidade">
+    </label>
+    <br>
+
+    <label>
+        Informe seu Logradouro:<input type="text" id="input_Logradouro">
+    </label>
+    <br>
+
+    <label>
+        Informe seu Bairro:<input type="text" id="input_Bairro">
+    </label>
+    <br>
+
+    <label>
+        Informe seu Complemento:<input type="text" id="input_Complemento">
+    </label>
+
+    <br>
+
+    <h3>Até:</h3>
+
+    <label>
+        Informe seu CEP:<input type="text" id="input_Cep2" oninput="Buscar('dois')" maxlength="8">
+    </label>
+    <br>
+
+    <label>
+        Informe sua Cidade:<input type="text" id="input_Cidade2">
+    </label>
+    <br>
+
+    <label>
+        Informe seu Logradouro:<input type="text" id="input_Logradouro2">
+    </label>
+    <br>
+
+    <label>
+        Informe seu Bairro:<input type="text" id="input_Bairro2">
+    </label>
+    <br>
+
+    <label>
+        Informe seu Complemento:<input type="text" id="input_Complemento2">
+    </label>
+    <br><br>
+
+    <button onclick="Calcular()">Calcular</button>
+</body>
+
+</html>
+
+<script>
+
+    function Buscar(Params) {
+
+        var Cep = input_Cep.value;
+        if (Params == 'um') {
+            if (Cep.length === 8 && !isNaN(Number(Cep))) {
+
+                fetch(`https://viacep.com.br/ws/${Cep}/json/`)
+
+                    .then(function (Resposta) {
+
+                        console.log("Resposta");
+                        console.log(Resposta);
+
+                        Resposta.json()
+                            .then(function (RespostaFormatada) {
+
+                                console.log("Resposta Formatada");
+                                console.log(RespostaFormatada);
+
+                                input_Cidade.value = RespostaFormatada.localidade;
+                                input_Logradouro.value = RespostaFormatada.logradouro;
+                                input_Bairro.value = RespostaFormatada.bairro;
+                                input_Complemento.value = RespostaFormatada.complemento;
+
+                            })
+
+
+                    })
+                    .catch(function (Error) {
+
+                        console.log("Houve um erro a fazer");
+                        console.log("ERROR");
+                        console.log(Error);
+
+                    })
+
+
+            }
+        }
+        else {
+
+            var Cep2 = input_Cep2.value;
+
+            if (Cep2.length == 8 && !isNaN(Number(Cep2))) {
+
+                fetch(`https://viacep.com.br/ws/${Cep2}/json/`)
+
+                    .then(function (Resposta2) {
+
+                        console.log('Resposta 2');
+                        console.log(Resposta2);
+
+                        Resposta2.json()
+                            .then(function (RespostaFormatada2) {
+
+                                console.log("Resposta Formatada 2");
+                                console.log(RespostaFormatada2);
+
+
+                                input_Cidade2.value = RespostaFormatada2.localidade;
+                                input_Logradouro2.value = RespostaFormatada2.logradouro;
+                                input_Bairro2.value = RespostaFormatada2.bairro;
+                                input_Complemento2.value = RespostaFormatada2.complemento;
+
+                            })
+
+                    })
+                    .catch(function (Error2){
+
+                        console.log("Houve um erro no até");
+                        console.log("ERROR 2");
+                        console.log(Error2)
+
+                    })
+
+            }
+        }
+    }
+
+    function Calcular(){
+
+    Cidade = input_Cidade.value;
+    Cidade2 = input_Cidade2.value;
+
+            // https://www.google.com.br/maps/dir/R.+Natal,+240+-+Vila+Sao+Jose,+Itaquaquecetuba+-+SP,+08573-150,+Brasil/Consola%C3%A7%C3%A3o,+S%C3%A3o+Paulo+-+SP,+01414-001/@-23.5086373,-46.5805511,12z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x94ce7b599b9711ad:0xc47c7d79a463e551!2m2!1d-46.3508121!2d-23.4917263!1m5!1m1!1s0x94ce59d30dc9a98b:0xaafb65a6d24da162!2m2!1d-46.6592186!2d-23.5557071?hl=pt-BR&entry=ttu
+        fetch(`https://www.distanciaentreascidades.com.br/distancia-de-${Cidade}-ate-${Cidade2}`)
+        
+        .then(function(Resposta){
+
+            console.log("Resposta");
+            console.log(Resposta);
+
+            Resposta.json()
+            .then(function (RespostaFormatada){
+
+                console.log('Resposta Formatada');
+                console.log(RespostaFormatada);
+
+                div_mensagem.innerHTML = RespostaFormatada;
+
+            })
+
+            
+        })
+        .catch(function(Error3){
+
+            console.log("Houve um erro ao calcular as distâncias");
+            console.log("Error 3");
+            console.log(Error3);
+        })
+    }
+</script>

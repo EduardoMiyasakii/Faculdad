@@ -1,30 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>Aprendendo json por conta própia :(</h1>
-    <button onclick="ver()">Ver json</button>
+    <input type="text" id="input_nomeResponsavel">
+    <input type="text" id="input_sobrenomeResponsavel">
+    <input type="text" id="input_nomeAluno">
+    <input type="text" id="input_sobrenomeAluno">
+    
+
+    <button onclick="Ver()">Ver json</button>
+
+    <div id="div_mensagem"></div>
 </body>
+
 </html>
 <script>
+    const Preco = 12.50;
     var listaJson = {};
-    function ver(){
-        var listaJson =[{
+
+    function Ver() {
+
+        const Preco = 2.50;
+
+        var Aluno = {
+            nomeAluno: input_nomeAluno.value,
+            sobrenomeAluno: input_sobrenomeAluno.value
+        };
+
+        var Responsavel = {
+            nomeResponsavel: input_nomeResponsavel.value,
+            sobrenomeResponsavel: input_sobrenomeResponsavel.value
+        };
+        
+        // CONST é uma variação imutavel.
+
+        // Let ele cria a variavel apenas quando ele é chamado ou seja, é melhor para otimização de código
+
+        // VAR quando o site carrega ele cria todas variavéis ou seja pior otimização dependendo do código
+
+        var listaJson = [{
             'autor': 'Jason',
             'titulo': 'Harry potter',
-            'ano':'1998'
+            'ano': '1998'
+        },
+        {
+            'autor': 'Pedro',
+            'titulo': 'Sla',
+            'ano': '1914'
         }
-    ];
+        ];
+
         console.log(listaJson);
         console.log(listaJson.ano);
         console.log(listaJson.autor);
         console.log(listaJson.titulo);
-        sessionStorage.Nome_Filme = listaJson.titulo
+        sessionStorage.NOME_FILME = listaJson[1].titulo;
+
+
+        // div_mensagem.innerHTML = listaJson[0].ano;
+        // div_mensagem.innerHTML += `<br>${listaJson[0].autor}`;
+        // div_mensagem.innerHTML += `<br><br>${listaJson[1].ano}`;
+        // div_mensagem.innerHTML += `<br>${listaJson[1].autor}<br>`;
+
+        // div_mensagem.innerHTML += `${Pessoa[0].nomeAluno}${Pessoa[0].sobrenomeAluno}${Pessoa[0].nomeResponsavel}${Pessoa[0].sobrenomeResponsavel}`;
+        div_mensagem.innerHTML += `${Aluno.nomeAluno} &nbsp ${Aluno.sobrenomeAluno}<br>`;
+        div_mensagem.innerHTML += `${Responsavel.nomeResponsavel}&nbsp ${Responsavel.sobrenomeResponsavel}`;
+
+
+        // div_mensagem.innerHTML += Preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+
     }
-    
 
 </script>

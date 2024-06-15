@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+
+<body>
+    <h1>Exercício 3</h1>
+    Saldo:
+    Depósitos:
+    Saques:
+    <button onclick="Movimentar(100)">Depositar 100</button>
+    <button onclick="Movimentar(-20)">Sacar 20</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+
+    var Conta = {};
+
+    var saldo = 0;
+    var depositos = 0;
+    var saques = 0;
+
+    function Movimentar(Edu) {
+
+        saldo += Edu;
+        if (Edu == 100) {
+            depositos++;
+        } else {
+            saques++;
+        }
+
+        Conta = {
+            saldo: saldo,
+            depositos: depositos,
+            saques: saques
+        }
+
+        div_mensagem.innerHTML = `Saldo: ${Conta.saldo}<br>
+          Depositos: ${Conta.depositos}<br>
+         Saques: ${Conta.saques}`
+    }
+</script>

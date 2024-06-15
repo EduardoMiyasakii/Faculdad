@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+
+<body>
+    <h1>Exercício 2</h1>
+    <button onclick="Comparar()">Comparar Campanhas</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+<script>
+
+    function Comparar() {
+
+        let Campanhas = [{
+            nome: 'Corinthians',
+            vitorias: 38,
+            empates: 0,
+            derrotas: 0
+        },
+
+        {
+            nome: 'Palmeiras',
+            vitorias: 0,
+            empates: 0,
+            derrotas: 38
+        }];
+
+        div_mensagem.innerHTML += `<br>O time ${Campanhas[0].nome} terminou o campeonato com ${Campanhas[0].vitorias * 3 + Campanhas[0].empates} Pontos`;
+        div_mensagem.innerHTML += `<br>O time ${Campanhas[1].nome} terminou o campeonato com ${Campanhas[1].vitorias * 3 + Campanhas[1].empates} Pontos`;
+    }
+</script>

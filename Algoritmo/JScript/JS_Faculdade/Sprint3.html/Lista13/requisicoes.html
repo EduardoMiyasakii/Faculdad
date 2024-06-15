@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisições</title>
+</head>
+
+<body>
+
+    <label for="input_Cep"> Informe seu CEP:</label>
+    <input id="input_Cep" maxlength="8" oninput="Buscar()" type="text" placeholder="Digite seu CEP">
+    <br>
+    <label>
+        Informe seu logradouro: <input id="input_Logradouro" type="text" placeholder="Digite seu Logradouro">
+    </label>
+    <br>
+    <label>
+        Informe sua Cidade: <input id="input_Cidade" type="text" placeholder="Digite seu Logradouro">
+    </label>
+    <br>
+    <label>
+        Informe seu Bairro: <input id="input_Bairro" type="text" placeholder="Digite seu Logradouro">
+    </label>
+    <br>
+    <label>
+        Informe seu Complemento: <input id="input_Complemento" type="text" placeholder="Digite seu Logradouro">
+    </label>
+    <br>
+   
+
+
+
+    <!-- <br> -->
+    <!-- <button onclick="Buscar()">Buscar CEP</button> -->
+
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+<script>
+
+    function Buscar() {
+
+        var Cep = input_Cep.value;
+        
+        if(Cep.length == 8 && !isNaN(Number(Cep))){
+
+            fetch(`https://viacep.com.br/ws/${Cep}/json/`)
+            
+            .then(function (resposta) {
+                
+                console.log('resposta');
+                console.log(resposta);
+                
+                resposta.json()
+                .then(function (respostaFormatada) {
+                    
+                    console.log('respostaFormatada')
+                    console.log(respostaFormatada);
+                    // console.log(JSON.stringify(respostaFormatada));
+                    
+                    input_Logradouro.value = respostaFormatada.logradouro;
+                    input_Cidade.value = respostaFormatada.localidade;
+                    input_Bairro.value = respostaFormatada.bairro;
+                    input_Complemento.value = respostaFormatada.complemento;
+                   
+
+                        // div_mensagem.innerHTML += `<br>Cidade: ${JSON.stringify(respostaFormatada)}`;
+                        
+                    })
+                })
+                .catch(function (error) {
+                    
+                    console.log('Houve um erro ao fazer');
+                    console.log('ERROR');
+                    console.log(error)
+                    
+                });
+                
+                console.log("/teste");
+                
+            }
+                
+            }
+        </script>

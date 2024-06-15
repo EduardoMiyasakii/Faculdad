@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+<body>
+    <h1>Exercício 1</h1>
+    <button onclick="Analisar()">Analisar Campanha</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    // var Campanha = {};
+
+    function Analisar(){
+        
+        let Campanha = {
+            vitorias: 10,
+            empates: 3,
+            derrotas: 25
+        }
+
+        div_mensagem.innerHTML = `O time terminou o campeonato com ${Campanha.vitorias * 3 + Campanha.empates} Pontos`;
+    }
+</script>
